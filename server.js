@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const cors = require('cors')
-
+const cors = require('cors');
+const path = require('path');
 
 const app = express();
 
@@ -16,6 +16,16 @@ app.use('/api/users', usersRouter);
 app.get('/',(req,res)=>{
     res.json({success : 'Users API'})
 })
+
+if (process.env.NODE_ENV === 'production') {
+    // Exprees will serve up production assets
+    app.use(express.static('client/build'));
+  
+    // Express serve up index.html file if it doesn't recognize route
+    app.get('*', (req, res) => {
+      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+  }
 
 //connect to db with mongoose
 mongoose.connect('mongodb+srv://innailyaev:CdZkVJeEQeMtFR9j@cluster.o79ew.mongodb.net/TravelApp', {
