@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
+
 
 const SignApp =()=>{
 
@@ -46,7 +48,7 @@ const SignApp =()=>{
                 <input type="text" onChange={(e)=>setEmail(e.target.value)}/>
                 <label>Password</label>
                 <input type="text" onChange={(e)=>setPassword(e.target.value)}/>
-                <button onClick={clickHandler} className="btn">Submit</button>
+            <Link to={`/login`}><button onClick={clickHandler} className="btn">Submit</button></Link>
             </form>
         </div>
     </div>
