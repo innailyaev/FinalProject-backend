@@ -5,7 +5,7 @@ const userModel = require('../models/users.model');
 
 const singUp = async (req,res)=>{
     const {name,email,password} = req.body;
-    console.log(name,enmail,password);
+    console.log(req.body);
    
     const user = new userModel({
         name,
