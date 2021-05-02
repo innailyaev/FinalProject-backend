@@ -13,9 +13,9 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use('/api/users', usersRouter);
 
-app.get('/',(req,res)=>{
-    res.json({success : 'Users API'})
-})
+// app.get('/',(req,res)=>{
+//     res.json({success : 'Users API'})
+// })
 
 if (process.env.NODE_ENV === 'production') {
     // Exprees will serve up production assets
