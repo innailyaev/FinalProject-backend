@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import {Link} from 'react-router-dom';
+import React from 'react';
+import LogOut from './LogOut';
 
 
-const UserPage =(name)=>{
+const UserPage =()=>{
 
   return (
     <div>
-        <h1> hello {name}</h1>
+      <LogOut/>
+        <h1>hello</h1>
     
     </div>
   );

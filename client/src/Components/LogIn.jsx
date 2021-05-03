@@ -8,18 +8,19 @@ const Login =()=>{
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
-    const isMountedRef = useRef(null);
+    // const isMountedRef = useRef(null);
 
 
-    const postNewUser= async () => {
+    const postLogIn= async () => {
         console.log("post");
         try{
            const response = await axios.post('/api/users/login', {
                 email:email,
                 password:password
         });
-            console.log(response);
-            setName(response.data.user.name);
+        console.log(email,password);
+        console.log(response);
+            // setName(response.data.user.name);
             
             // if(response.data.error){
             //     setError(response.data.error);
@@ -33,16 +34,16 @@ const Login =()=>{
         }
     }
 
-    useEffect(() => {
-        isMountedRef.current = true;
-    })
+    // useEffect(() => {
+    //     isMountedRef.current = true;
+    // })
 
     const formHandler = (e)=>{
         e.preventDefault()
     }
 
     const clickHandler = ()=>{
-        postNewUser();
+        postLogIn();
     }
 
   return (
