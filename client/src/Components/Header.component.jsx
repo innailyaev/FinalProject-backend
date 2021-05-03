@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import '../CSS/Header.css';
 
-const Header = () => {
+const Header = ({title}) => {
   return (
     <div className="header">
 

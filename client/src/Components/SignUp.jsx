@@ -48,7 +48,7 @@ const SignApp =()=>{
                 <input type="text" onChange={(e)=>setEmail(e.target.value)}/>
                 <label>Password</label>
                 <input type="text" onChange={(e)=>setPassword(e.target.value)}/>
-            <Link to={`/login`}><button onClick={clickHandler} className="btn">Submit</button></Link>
+            <Link to={`/login`}><button onClick={clickHandler} className="btn">SignUp</button></Link>
             </form>
         </div>
     </div>
