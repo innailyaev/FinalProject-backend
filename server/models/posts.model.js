@@ -12,8 +12,13 @@ const PostsSchema = mongoose.Schema ({
         type: Array,
         required:false,
     },
+    owner:{
+        type: mongoose.Schema.Types.ObjectId,
+        required:true,
+        ref: 'User'
+    }
   
 });
 
-const postsmodel = mongoose.model ('posts', PostsSchema);
+const postsmodel = mongoose.model('posts', PostsSchema);
 module.exports = postsmodel;

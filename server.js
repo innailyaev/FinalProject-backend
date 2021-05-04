@@ -7,11 +7,14 @@ const path = require('path');
 const app = express();
 
 const usersRouter = require('./server/routes/users.route');
+const postRouter = require('./server/routes/posts.route');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/api/users', usersRouter);
+app.use('/api/posts', postRouter);
+
 
 // app.get('/',(req,res)=>{
 //     res.json({success : 'Users API'})
