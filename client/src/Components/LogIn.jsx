@@ -5,9 +5,9 @@ import {Link} from 'react-router-dom';
 
 const Login =()=>{
 
-    const [name,setName] = useState('');
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
+
     // const isMountedRef = useRef(null);
 
 
@@ -15,8 +15,8 @@ const Login =()=>{
         console.log("post");
         try{
            const response = await axios.post('/api/users/login', {
-                email:email,
-                password:password
+            email:email,
+            password:password
         });
         console.log(email,password);
         console.log(response);
@@ -48,13 +48,13 @@ const Login =()=>{
 
   return (
     <div className="signUpContainer">
-        <div className="formDiv">
+        <div className="signUp">
             <form onSubmit={formHandler} className="formContainer">
                 <label>Email</label>
                 <input type="text" onChange={(e)=>setEmail(e.target.value)}/>
                 <label>Password</label>
                 <input type="text" onChange={(e)=>setPassword(e.target.value)}/>
-                <Link to={`/hello`}><button onClick={clickHandler} className="btn">Login</button></Link>
+                <Link to={`/hello`}><button onClick={clickHandler} className="signInbtn">Login</button></Link>
             </form>
         </div>
     </div>
