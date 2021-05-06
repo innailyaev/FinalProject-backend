@@ -16,7 +16,6 @@ const Header = ({title}) => {
           textColor="primary"
           centered
           className="tabs"
-          value="0"
         >
           <Tab  label='LOGO'  to='/' component={Link}><div className="logo"></div></Tab>
           <Tab  label='HOMEPAGE'  to='/' component={Link} />
