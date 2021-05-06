@@ -1,50 +1,49 @@
-import React, { useState, useEffect , useRef} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import validator from 'validator';
+import {useHistory} from 'react-router-dom';
+import Button from '../Utilities/Button';
 
 
 const Login =()=>{
 
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
+    const [errorMsg,setErrorMsg] = useState('');
+    const history = useHistory();
 
-    // const isMountedRef = useRef(null);
 
+    const formHandler = (e)=>{
+        e.preventDefault();
+    }
 
-    const postLogIn= async () => {
+    const ClickHandler = async (e)=>{
+        if (!validator.isEmail(email)) {
+            return setErrorMsg("Invalid email");
+        }
+        if (!validator.isStrongPassword(password)) {
+            return setErrorMsg('Invalid Password, must include: Min length:8, 1 lowercase,1 uppercase, 1 number,1 symbol');
+        }
+        e.preventDefault();
         console.log("post");
         try{
            const response = await axios.post('/api/users/login', {
             email:email,
             password:password
         });
+        history.push(`/user/${response.data.user._id}`)
         console.log(email,password);
         console.log(response);
-            // setName(response.data.user.name);
             
-            // if(response.data.error){
-            //     setError(response.data.error);
-            // }
-            // else{
-            //     setError('');
-            // }
-           
         }catch(err){
-                console.log(err); 
+            if (err.response.status === 400) {
+                setErrorMsg(err.response.data.error);
+            }
+            else 
+              setErrorMsg("Error occurred, please try again");
         }
     }
 
-    // useEffect(() => {
-    //     isMountedRef.current = true;
-    // })
-
-    const formHandler = (e)=>{
-        e.preventDefault()
-    }
-
-    const clickHandler = ()=>{
-        postLogIn();
-    }
 
   return (
     <div className="signUpContainer">
@@ -54,7 +53,9 @@ const Login =()=>{
                 <input type="text" onChange={(e)=>setEmail(e.target.value)}/>
                 <label>Password</label>
                 <input type="text" onChange={(e)=>setPassword(e.target.value)}/>
-                <Link to={`/hello`}><button onClick={clickHandler} className="signInbtn">Login</button></Link>
+                {errorMsg ? <p>{errorMsg}</p>: null}
+
+                <Button click={ClickHandler} className="signInbtn" content="Login"/>
             </form>
         </div>
     </div>
