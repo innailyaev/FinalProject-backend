@@ -1,14 +1,17 @@
-.header{
+ /* .header{
     height: 50px;
     padding-right: 10px;
-}
+} */
 
-.headerContainer {
-    /* width: 100%; */
+/* .header {
+    height: 50px;
+    padding-right: 10px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}  */
+
+.tabs{
+    background-color: rgb(238, 167, 167);
 }
-
-
-  

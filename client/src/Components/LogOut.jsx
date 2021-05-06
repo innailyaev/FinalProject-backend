@@ -24,11 +24,6 @@ const LogOut =()=>{
                 console.log(err); 
         }
     }
-
-    // useEffect(() => {
-    //     isMountedRef.current = true;
-    // })
-
  
     const clickHandler = ()=>{
         postLogOut();

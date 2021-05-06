@@ -1,22 +1,27 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { Paper, Tabs,Tab } from '@material-ui/core';
+
+
+
+
 import '../CSS/Header.css';
 
 const Header = ({title}) => {
   return (
-    <div className="header">
-
-      <div className="headerContainer">
-        <div>
-        <Link to=""><div className="logo"></div></Link>
-          <Link to="/">
-           HOMEPAGE
-          </Link>
-        </div>
-        <div />
-        <Link to="/login">LogIn</Link>
-      </div>
-
+    <div>
+      <Paper>
+        <Tabs
+          indicatorColor="primary"
+          textColor="primary"
+          centered
+          className="tabs"
+        >
+          <Tab label='LOGO'  to='/' component={Link}><div className="logo"></div></Tab>
+          <Tab label='HOMEPAGE'  to='/' component={Link} />
+          <Tab label='Login'  to='/login' component={Link} />
+        </Tabs>
+      </Paper>
     </div>
   );
 };

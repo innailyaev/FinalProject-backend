@@ -1,9 +1,10 @@
-.signUpContainer {
+.CardContainer {
     height: 100vh;
     display: flex;
   }
   
-  .signUp{
+  .card{
+    position: relative;
     padding: 60px;
     margin: auto;
     width: 100%;
@@ -14,16 +15,16 @@
     justify-content: center;
     background: radial-gradient(
       ellipse at left bottom,
-      rgba(243, 172, 195, 0.9) 0%,
+      rgba(214, 147, 168, 0.9) 0%,
       rgba(197, 149, 156, 0.9) 59%,
-      rgba(168, 106, 119, 0.9) 100%
+      rgba(233, 189, 199, 0.9) 100%
     );
     box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.8);
     border-radius: 10px;
 
   }
   
-  .signUp label {
+  .card label {
     color: white;
     margin: 14px 0;
     display: block;
@@ -31,12 +32,11 @@
     line-height: 1;
   }
   
-  .signUp input {
+  .card input {
     width: 100%;
     margin: 10px;
     border: none;
     border-bottom: solid rgba(182, 111, 127, 0.9);
-    ;
     outline: none;
     font-size: 20px;
     padding: 10px;
@@ -44,34 +44,16 @@
     color: #fff;
     letter-spacing: 1px;
   }
-  
-  .signUp .btnContainer {
-    width: 100%;
-    padding: 24px 0;
+
+  .card .closeBtn{
+    position: absolute;
+    top:15px;
+    right: 15px;
+    color: white;
   }
   
-  .signUp .btnContainer p {
-    margin: 14px 0 0 0;
-    text-align: right;
-    color: #fff;
-  }
-  
-  .signUp .btnContainer p span {
-    color: yellow;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    margin-left: 5px;
-    cursor: pointer;
-    transition: all 400ms ease-in-out;
-  }
-  
-  .signUp .btnContainer p span:hover {
+  .card .errorMsg{
     color: red;
-  }
-  
-  .signUp .errorMsg {
-    color: red;
-    font-size: 16px;
   }
   
   .signInbtn{
@@ -85,7 +67,17 @@
     font-size: 20px;
     margin: 10px;
   }
-  
-  .btnContainer p{
-    font-size: 25px;
+
+  .loginbtn{
+    background-color: transparent;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    border-color:  rgba(182, 111, 127, 0.9);;
+    cursor: pointer;
+    outline: none;
+    font-size: 20px;
+    margin: 10px;
   }
+  
+

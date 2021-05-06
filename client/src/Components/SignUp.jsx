@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import validator from 'validator';
+import {Link,useHistory} from 'react-router-dom';
 import Button from '../Utilities/Button';
-import '../CSS/SignUpStyle.css';
+import '../CSS/CardStyle.css';
+
 
 
 const SignApp =()=>{
@@ -10,9 +12,23 @@ const SignApp =()=>{
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
-    const [error,setError] = useState('');
+    const [errorMsg,setErrorMsg] = useState('');
+    const history = useHistory();
 
-    const postNewUser= async () => {
+
+    const formHandler = (e)=>{
+        e.preventDefault()
+    }
+
+    const clickHandler = async (e)=>{
+
+        if (!validator.isEmail(email)) {
+            return setErrorMsg("Invalid email");
+        }
+        if (!validator.isStrongPassword(password)) {
+            return setErrorMsg('Invalid Password, must include: Min length:8, 1 lowercase,1 uppercase, 1 number,1 symbol');
+        }
+
         console.log("post");
         try{
            const response = await axios.post('/api/users/signup', {
@@ -20,43 +36,33 @@ const SignApp =()=>{
                 email:email,
                 password:password
         });
-            console.log(response.data.error.errors.name.message);
-            if(response.data.error){
-                setError(response.data.error.errors.name.message);
-            }
-            else{
-                setError('');
-            }
-           
+        history.push(`/user/${response.data.user._id}`)
         }catch(err){
-                console.log(err); 
+            if (err.response.status === 400) {
+                setErrorMsg(err.response.data.error);
+            }
+            else 
+              setErrorMsg("Error occurred, please try again");
         }
     }
 
-    const formHandler = (e)=>{
-        e.preventDefault()
-    }
-
-    const clickHandler = (e)=>{
-        // e.preventDefault()
-        postNewUser();
-    }
-
   return (
-    <div className="signUpContainer">
-        <div className="signUp">
+    <div className="CardContainer">
+        <div className="card">
             <form onSubmit={formHandler} className="formContainer">
+            <Link to='/' ><i className="fas fa-times closeBtn"></i></Link>
                 <label>Name</label>
                 <input type="text" onChange={(e)=>setName(e.target.value)}/>
                 <label>Email</label>
                 <input type="text" onChange={(e)=>setEmail(e.target.value)}/>
                 <label>Password</label>
                 <input type="text" onChange={(e)=>setPassword(e.target.value)}/>
-                {/* {
-                    error ? <p>{error}</p> : null
-                } */}
-            <Link to={`/hello`}><Button click={clickHandler} content={'SignUp'} className="signInbtn"/></Link>
-            <Link to={`/login`}><Button click={clickHandler} content={'LogIn'} className="loginbtn"/></Link>
+                {errorMsg ? <p className="errorMsg">{errorMsg}</p>: null}
+            <Button click={clickHandler} content={'SignUp'} className="signInbtn"/>
+            <div className="cardFooter">
+                <span>Already have an account?</span>
+                <Link to={`/login`}><Button click={clickHandler} content={'LogIn'} className="loginbtn"/></Link>
+            </div>
 
 
             </form>

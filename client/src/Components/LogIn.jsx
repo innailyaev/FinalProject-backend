@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import validator from 'validator';
-import {useHistory} from 'react-router-dom';
+import {Link,useHistory} from 'react-router-dom';
 import Button from '../Utilities/Button';
 
 
@@ -24,7 +24,6 @@ const Login =()=>{
         if (!validator.isStrongPassword(password)) {
             return setErrorMsg('Invalid Password, must include: Min length:8, 1 lowercase,1 uppercase, 1 number,1 symbol');
         }
-        e.preventDefault();
         console.log("post");
         try{
            const response = await axios.post('/api/users/login', {
@@ -32,7 +31,6 @@ const Login =()=>{
             password:password
         });
         history.push(`/user/${response.data.user._id}`)
-        console.log(email,password);
         console.log(response);
             
         }catch(err){
@@ -46,15 +44,15 @@ const Login =()=>{
 
 
   return (
-    <div className="signUpContainer">
-        <div className="signUp">
+    <div className="CardContainer">
+        <div className="card">
             <form onSubmit={formHandler} className="formContainer">
+            <Link to='/' ><i className="fas fa-times closeBtn"></i></Link>
                 <label>Email</label>
                 <input type="text" onChange={(e)=>setEmail(e.target.value)}/>
                 <label>Password</label>
                 <input type="text" onChange={(e)=>setPassword(e.target.value)}/>
-                {errorMsg ? <p>{errorMsg}</p>: null}
-
+                {errorMsg ? <p className="errorMsg">{errorMsg}</p>: null}
                 <Button click={ClickHandler} className="signInbtn" content="Login"/>
             </form>
         </div>
