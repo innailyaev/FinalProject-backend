@@ -65,7 +65,6 @@ usersSchema.methods.generateAuthToken = async function () {
 
 usersSchema.statics.findByCredentials = async (email, password) => {
   const user = await usersmodel.findOne ({email});
-  console.log(user);
   if (!user) {
     throw new Error ('unable to login');
   }

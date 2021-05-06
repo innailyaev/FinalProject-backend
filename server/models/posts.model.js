@@ -15,7 +15,7 @@ const PostsSchema = mongoose.Schema ({
     owner:{
         type: mongoose.Schema.Types.ObjectId,
         required:true,
-        ref: 'User'
+        ref: 'usersmodel'
     }
   
 });

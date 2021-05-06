@@ -1,10 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { Paper, Tabs,Tab } from '@material-ui/core';
-
-
-
-
 import '../CSS/Header.css';
 
 const Header = ({title}) => {
