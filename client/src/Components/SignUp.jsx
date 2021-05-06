@@ -38,11 +38,12 @@ const SignApp =()=>{
         });
         history.push(`/user/${response.data.user._id}`)
         }catch(err){
-            if (err.response.status === 400) {
-                setErrorMsg(err.response.data.error);
-            }
-            else 
-              setErrorMsg("Error occurred, please try again");
+            console.log(err);
+            // if (err.response.status === 400) {
+            //     setErrorMsg(err.response.data.error);
+            // }
+            // else 
+            //   setErrorMsg("Error occurred, please try again");
         }
     }
 
