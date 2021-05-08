@@ -26,11 +26,9 @@ const getPosts = async (req,res)=>{
 
 const getPostById = async (req,res)=>{
     const _id = req.params.id
-    console.log(req.user._id);
 
     try {
-        const post = await postsModel.findOne({ _id, owner: req.user._id })
-        console.log(post);
+        const post = await postsModel.findOne({ _id, "owner": req.user._id })
 
         if (!post) {
             return res.status(404).send()
