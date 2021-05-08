@@ -15,18 +15,38 @@ const createPost = async (req,res)=>{
     }
 }
 
-const getAllPosts = async (req,res)=>{
+const getPosts = async (req,res)=>{
     try {
-        const posts = await posts.find({})
-        res.send(posts)
+        await req.user.populate('posts').execPopulate()
+        res.status(200).send(req.user.posts);
     } catch (e) {
         res.status(500).send()
     }
 }
 
+const getPostById = async (req,res)=>{
+    const _id = req.params.id
+    console.log(req.user._id);
+
+    try {
+        const post = await postsModel.findOne({ _id, owner: req.user._id })
+        console.log(post);
+
+        if (!post) {
+            return res.status(404).send()
+        }
+
+        res.send(post)
+    } catch (e) {
+        res.status(500).send()
+    }
+
+}
+
 
 module.exports = {
     createPost,
-    getAllPosts
+    getPosts,
+    getPostById
 }
 

@@ -3,6 +3,7 @@ const validator = require ('validator');
 const bcrypt = require ('bcryptjs');
 const jwt = require ('jsonwebtoken');
 const jwtKey = 'thisismysecretkey';
+const postsmodel = require('./posts.model');
 
 const usersSchema = mongoose.Schema ({
   name: {
@@ -45,6 +46,12 @@ const usersSchema = mongoose.Schema ({
   ],
 });
 
+usersSchema.virtual('posts', {
+  ref: 'Post',
+  localField: '_id',
+  foreignField: 'owner'
+})
+
 usersSchema.methods.toJSON = function(){
   const user=this;
   const userObject=user.toObject();
@@ -59,7 +66,7 @@ usersSchema.methods.generateAuthToken = async function () {
   const token = jwt.sign ({_id: user._id.toString ()}, jwtKey);
 
   user.tokens = user.tokens.concat ({token});
-  await user.save ();
+  await user.save();
   return token;
 };
 
@@ -84,6 +91,6 @@ usersSchema.pre ('save', async function (next) {
   next ();
 });
 
-const usersmodel = mongoose.model ('users', usersSchema);
-module.exports = usersmodel;
+const User = mongoose.model ('User', usersSchema);
+module.exports = User;
 // module.exports = mongoose.model('rooms',roomSchema);

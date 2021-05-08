@@ -15,10 +15,10 @@ const PostsSchema = mongoose.Schema ({
     owner:{
         type: mongoose.Schema.Types.ObjectId,
         required:true,
-        ref: 'usersmodel'
+        ref: 'User'
     }
   
 });
 
-const postsmodel = mongoose.model('posts', PostsSchema);
-module.exports = postsmodel;
+const Post = mongoose.model('Post', PostsSchema);
+module.exports = Post;

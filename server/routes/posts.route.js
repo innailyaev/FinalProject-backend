@@ -5,8 +5,10 @@ const postsController = require('../controllers/posts.controller');
 
 router.post('/posts',auth,(req,res)=>{
     postsController.createPost(req,res); 
-}).get('/posts', async (req, res) => {
-    postsController.getAllPosts(req,res);
+}).get('/posts', auth, (req, res) => {
+    postsController.getPosts(req,res);
+}).get('/posts/:id', auth, async (req, res) => {
+    postsController.getPostById(req,res);
 })
 
 module.exports = router;
