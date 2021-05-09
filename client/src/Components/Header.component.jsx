@@ -4,6 +4,7 @@ import { Paper, Tabs,Tab } from '@material-ui/core';
 import '../CSS/Header.css';
 
 const Header = ({title}) => {
+  
   return (
     <div>
       <Paper>

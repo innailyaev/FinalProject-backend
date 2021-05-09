@@ -8,6 +8,9 @@ import LogIn from './Components/LogIn.jsx';
 import UserPage from './Components/UserPage.jsx';
 import Dashboard from './Components/Dashboard.jsx';
 import GetProfile from './Components/GetUserProfile.jsx';
+import CreatePost from './Components/CreatePost.jsx';
+import HamburgerMenu from './Utilities/HamburgerMenu';
+import GetAllPosts from './Components/GetAllPosts.jsx';
 
 
 function App() {
@@ -17,9 +20,11 @@ function App() {
       
      <BrowserRouter>
         <Switch>
-
+      
           <Route path="/hello" exact component={UserPage} />
           <Route path="/profile" exact component={GetProfile}/>
+          <Route path="/newpost" exact component={CreatePost}/>
+          <Route path="/myposts" exact component={GetAllPosts}/>
 
           <div>
             <Header title={'LOGIN'}/>

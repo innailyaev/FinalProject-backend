@@ -1,0 +1,22 @@
+.textEditor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-around;
+    margin-top: 100px;
+}
+
+.editor{
+    width: 60vw;
+    margin-bottom: 30px;
+}
+
+.content{
+    border: solid red;
+    width: 50vw;
+}
+
+.postBtn{
+    width: 150px;
+    height: 40px;
+}
