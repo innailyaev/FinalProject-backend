@@ -15,7 +15,7 @@ const Header = ({title}) => {
         >
           <Tab  label='LOGO'  to='/' component={Link}><div className="logo"></div></Tab>
           <Tab  label='HOMEPAGE'  to='/' component={Link} />
-          <Tab  label='Login'  to='/login' component={Link} />
+          <Tab  label='LOGIN'  to='/login' component={Link} />
         </Tabs>
       </Paper>
     </div>

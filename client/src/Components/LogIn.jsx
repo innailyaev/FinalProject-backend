@@ -5,12 +5,18 @@ import {Link,useHistory} from 'react-router-dom';
 import Button from '../Utilities/Button';
 
 
+
+
 const Login =()=>{
 
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
     const [errorMsg,setErrorMsg] = useState('');
     const history = useHistory();
+    if(localStorage.getItem('token')){
+        history.push(`/hello`)
+
+    }
 
 
     const formHandler = (e)=>{
@@ -30,8 +36,9 @@ const Login =()=>{
             email:email,
             password:password
         });
-        history.push(`/user/${response.data.user._id}`)
-        console.log(response);
+        console.log(response.data);
+        localStorage.setItem('token', response.data.token);        
+        history.push(`/hello`)
             
         }catch(err){
             if (err.response.status === 400) {
@@ -46,6 +53,7 @@ const Login =()=>{
   return (
     <div className="CardContainer">
         <div className="card">
+        <h1>Please Log In</h1>
             <form onSubmit={formHandler} className="formContainer">
             <Link to='/' ><i className="fas fa-times closeBtn"></i></Link>
                 <label>Email</label>
@@ -54,10 +62,14 @@ const Login =()=>{
                 <input type="text" onChange={(e)=>setPassword(e.target.value)}/>
                 {errorMsg ? <p className="errorMsg">{errorMsg}</p>: null}
                 <Button click={ClickHandler} className="signInbtn" content="Login"/>
+                <div className="cardFooter">
+                <span>Don't have an account?<Link to={`/signup`}>Sign Up</Link></span>
+            </div>
             </form>
         </div>
     </div>
   );
 }
+
 
 export default Login;

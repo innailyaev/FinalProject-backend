@@ -4,8 +4,7 @@ import {Link} from 'react-router-dom';
 
 
 const LogOut =()=>{
-
-    
+      
     const postLogOut= async () => {
         console.log("post");
         try{
@@ -27,6 +26,8 @@ const LogOut =()=>{
  
     const clickHandler = ()=>{
         postLogOut();
+        localStorage.removeItem('token');
+
     }
 
   return (

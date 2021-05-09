@@ -1,14 +1,18 @@
 import React from 'react';
-import LogOut from './LogOut';
+import HamburgerMenu from '../Utilities/HamburgerMenu';
+import GetProfile from '../Components/GetUserProfile';
+import GetAllPosts from '../Components/GetAllPosts';
 
 
 const UserPage =()=>{
 
+
+
   return (
     <div>
-      <LogOut/>
-        <h1>hello</h1>
-    
+      <HamburgerMenu/>
+        <GetProfile/>
+        <GetAllPosts/>
     </div>
   );
 }

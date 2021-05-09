@@ -38,13 +38,52 @@ const getPostById = async (req,res)=>{
     } catch (e) {
         res.status(500).send()
     }
+}
 
+const updatePost = async (req,res)=>{
+    const updates = Object.keys(req.body)
+    const allowedUpdates = ['dedcription', 'images']
+    const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
+
+    if (!isValidOperation) {
+        return res.status(400).send({ error: 'Invalid updates!' })
+    }
+
+    try {
+        const post = await postsModel.findOne({ _id: req.params.id, "owner": req.user._id})
+
+        if (!post) {
+            return res.status(404).send()
+        }
+
+        updates.forEach((update) => post[update] = req.body[update])
+        await post.save()
+        res.send(post)
+    } catch (e) {
+        res.status(400).send(e)
+    }
+}
+
+const deletePost = async (req,res)=>{
+    try {
+        const post = await postsModel.findOneAndDelete({ _id: req.params.id, "owner": req.user._id })
+
+        if (!post) {
+            res.status(404).send()
+        }
+
+        res.send(post)
+    } catch (e) {
+        res.status(500).send(e)
+    }
 }
 
 
 module.exports = {
     createPost,
     getPosts,
-    getPostById
+    getPostById,
+    updatePost,
+    deletePost
 }
 

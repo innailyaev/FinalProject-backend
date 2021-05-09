@@ -59,10 +59,9 @@ const SignApp =()=>{
                 <label>Password</label>
                 <input type="text" onChange={(e)=>setPassword(e.target.value)}/>
                 {errorMsg ? <p className="errorMsg">{errorMsg}</p>: null}
-            <Button click={clickHandler} content={'SignUp'} className="signInbtn"/>
+            <Button click={clickHandler} content={'Sign Up'} className="signInbtn"/>
             <div className="cardFooter">
-                <span>Already have an account?</span>
-                <Link to={`/login`}><Button click={clickHandler} content={'LogIn'} className="loginbtn"/></Link>
+                <span>Already have an account?<Link to={`/login`}>Login</Link></span>
             </div>
 
 

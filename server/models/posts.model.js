@@ -2,7 +2,7 @@ const mongoose = require ('mongoose');
 
 
 const PostsSchema = mongoose.Schema ({
-    dedcription:{
+    description:{
         type:String,
         require:true,
         trim:true
