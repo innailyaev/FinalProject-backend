@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import axios from 'axios';
+import '../CSS/UserPageStyle.css';
 
 
 const GetUserProfile =()=>{
@@ -28,9 +29,9 @@ const GetUserProfile =()=>{
     },[]);
 
   return (
-    <>
+    <div className="userProfile">
        <h1>Hello {userName}</h1> 
-    </>
+    </div>
   );
 }
 

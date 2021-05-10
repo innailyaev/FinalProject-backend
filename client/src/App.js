@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
-import {BrowserRouter, Route,Switch,withRouter} from 'react-router-dom';
+import {BrowserRouter as Router, Route,Switch,withRouter} from 'react-router-dom';
 import Header from './Components/Header.component.jsx';
 import HomePage from './Pages/Homepage.jsx';
 import SignUp from './Components/SignUp.jsx';
@@ -13,14 +13,16 @@ import HamburgerMenu from './Utilities/HamburgerMenu';
 import GetAllPosts from './Components/GetAllPosts.jsx';
 
 
+
 function App() {
 
   return (
     <div className="App">
       
-     <BrowserRouter>
+     <Router>
+       {/* <HamburgerMenu/> */}
         <Switch>
-      
+        
           <Route path="/hello" exact component={UserPage} />
           <Route path="/profile" exact component={GetProfile}/>
           <Route path="/newpost" exact component={CreatePost}/>
@@ -34,7 +36,7 @@ function App() {
             <Route path="/dashboard"><Dashboard/></Route>
           </div>
         </Switch>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }

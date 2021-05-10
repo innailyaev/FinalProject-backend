@@ -1,0 +1,87 @@
+.mainContainer{
+    /* width: 100vw; */
+    /* height: 100vh; */
+    background-color: #f9c74f;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.profileContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Pacifico', cursive;
+}
+
+.coverImg img{
+    width: 60vw;
+    height: 60vh;
+    background-size: contain;
+}
+
+.images{
+    position: relative;
+}
+
+.profileImg img{
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    position: absolute;
+    top: 80%;
+    left: 40%;
+    z-index: 10;
+}
+
+.userProfile h1{
+    font-family: 'Pacifico', cursive;
+    font-size:70px;
+}
+
+.coverBtn{
+    position: absolute;
+    right: 0;
+    top: 85%;
+    right: 5%;
+    height: 50px;
+    width: 150px;
+    border-radius: 10px;
+    background-color: transparent;
+    cursor: pointer;
+    border: solid thin white;
+    color: white;
+    font-weight: bold;
+}
+
+.coverBtn i {
+    margin-right: 10px;
+}
+
+.profileImg i{
+    position: absolute;
+    color: black;
+    z-index: 20;
+    bottom: -100px;
+    right: 40%;
+    background-color: #f9c74f;
+    width: 60px;
+    height: 50px;
+    border-radius: 50%;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+/* Section 2 */
+.carouselContainer{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carouselContainer .carousel{
+    width: 80%;
+    height: 50%;
+    border: solid black;
+}
