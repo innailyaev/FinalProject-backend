@@ -25,6 +25,7 @@ if (process.env.NODE_ENV === 'production') {
     });
   }
 
+
 //connect to db with mongoose
 mongoose.connect('mongodb+srv://innailyaev:CdZkVJeEQeMtFR9j@cluster.o79ew.mongodb.net/TravelApp', {
     useNewUrlParser: true,

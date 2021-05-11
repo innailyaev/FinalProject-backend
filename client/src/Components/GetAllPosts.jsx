@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import axios from 'axios';
-import Card from '../Utilities/Card';
 import SimpleAccordion from '../Utilities/Accordion';
+import HamburgerMenu from '../Utilities/HamburgerMenu';
 import parse from 'html-react-parser';
 import '../CSS/AllPosts.css';
 
@@ -34,7 +34,7 @@ const GetAllPosts =()=>{
 
   return (
     <div className="allPostsContainer">
-        {/* <HamburgerMenu/> */}
+        <HamburgerMenu/>
 
         {
             posts.map((post,index)=>{

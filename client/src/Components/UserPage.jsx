@@ -1,4 +1,5 @@
-import React, { useEffect,useState,videoRef } from 'react';
+import React, { useEffect,useState } from 'react';
+import axios from 'axios';
 import HamburgerMenu from '../Utilities/HamburgerMenu';
 import GetProfile from '../Components/GetUserProfile';
 import Carousel from '../Utilities/Carousel';
@@ -10,29 +11,88 @@ import '../CSS/UserPageStyle.css';
 
 const UserPage =()=>{
 
-  const [popUpToggle,setPopUpToggle] = useState(false);
+  const [file,setFile] = useState();
+  const [userId,setUserId] = useState();
+  const [image, setImage] = useState();
+
+
+  const uploadImage = async () => { 
+    // e.preventDefault();
+    let formData = new FormData();
+    formData.append('avatar', file);
+    try{
+      const response =await axios.post('/api/users/profile/avatar', formData,{
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        }
+    });
+      console.log(response);
+    }catch(e){
+      console.log(e);
+    }
+     
+  };
+
+  const getImage = async ()=>{
+    try{
+      const response =await axios.get(`/api/users/profile/${userId}/avatar`);
+      console.log(response.config.url);
+      setImage(response.config.url);
+    }catch(e){
+      console.log(e);
+    }
+     
+  }
+
+//   const arrayBufferToBase64 = (buffer) => {
+//     let binary = '';
+//     let bytes = [].slice.call(new Uint8Array(buffer));
+//     bytes.forEach((b) => binary += String.fromCharCode(b));
+//     return window.btoa(binary);
+// }
+
 
   useEffect(()=>{
     Aos.init({duration:2000});
+    getImage();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
   const clickHandler =()=>{
-    setPopUpToggle(true);
+    uploadImage();
+    
+  }
+
+  const clickHandler2 = ()=>{
+    console.log("dfffff",userId);
+    getImage();
+  }
+
+  const inputHandler =(e)=>{
+    console.log(e.target.files[0]);
+    setFile(e.target.files[0]);
+
   }
 
   return (
     <div className="mainContainer">
       <HamburgerMenu/>
-        <GetProfile/>
+        <GetProfile getDetailes={(id)=>{
+          setUserId(id);
+        }}/>
         <div className="profileContainer">
           <div className="images">
               <div className="coverImg">
                   <img src="https://prod-virtuoso.dotcmscloud.com/dA/188da7ea-f44f-4b9c-92f9-6a65064021c1/heroImage1/PowerfulReasons_hero.jpg" alt="travel"/>
-                  <button className="coverBtn"><i class="fas fa-camera"></i>Edit cover photo</button>
+                  <input type="file" className="coverBtn" onChange={inputHandler}/>
+                  <button onClick={clickHandler}><i class="fas fa-camera fa-2x"></i>Upload</button>
+                  <button onClick={clickHandler2}>getImage</button>
+
               </div>
               <div className="profileImg">
               <i class="fas fa-camera fa-2x"></i>
-                <img  src="https://www.pngitem.com/pimgs/m/404-4042686_my-profile-person-icon-png-free-transparent-png.png" alt="profileImg"/>
+              {/* <img src={`data:image/jpeg;base64,${arrayBufferToBase64(image)}`} alt="profileImg" /> */}
+                <img  src={`http://localhost:5000${image}`} alt="profileImg"/>
               </div>
             </div>
         </div>

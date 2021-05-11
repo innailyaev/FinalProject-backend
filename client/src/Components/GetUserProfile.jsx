@@ -3,9 +3,10 @@ import axios from 'axios';
 import '../CSS/UserPageStyle.css';
 
 
-const GetUserProfile =()=>{
+const GetUserProfile =({getDetailes})=>{
       
     const [userName,setName] = useState();
+    const [userId,setUserId] = useState();
 
     const getProfile= async () => {
         console.log("get");
@@ -15,7 +16,8 @@ const GetUserProfile =()=>{
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
         });
-            setName(response.data.name)
+            setName(response.data.name);
+            setUserId(response.data._id);
             console.log(response);
            
         }catch(err){
@@ -25,8 +27,10 @@ const GetUserProfile =()=>{
 
     useEffect(()=>{
         getProfile();
+        getDetailes(userId);
+        console.log("user id",userId);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[]);
+    },[userId]);
 
   return (
     <div className="userProfile">

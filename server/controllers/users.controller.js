@@ -86,11 +86,25 @@ const updateProfile = async (req,res)=>{
     }
 }
 
+//image upload
+
+// const uploadProfileImage = async (req,res)=>{
+//     req.user.avatar = req.file.buffer
+//     try{
+//         await req.user.save()
+//         res.send()
+//     }catch(error, req, res, next){
+//         res.status(400).send({ error: error.message }) 
+// }
+// }
+
+
+
 module.exports = {
     singUp,
     login,
     logout,
     logoutAll,
     deleteUserProfile,
-    updateProfile
+    updateProfile,
 }
