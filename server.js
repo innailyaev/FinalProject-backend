@@ -15,27 +15,6 @@ app.use(cors());
 app.use('/api/users', usersRouter);
 app.use('/api/posts', postRouter);
 
-// app.get('/',(req,res)=>{
-//     res.json({success : 'Users API'})
-// })
-
-// const Post = require('./server/models/posts.model')
-// const User = require('./server/models/users.model')
-
-// const main = async () => {
-//     // const task = await Task.findById('5c2e505a3253e18a43e612e6')
-//     // await task.populate('owner').execPopulate()
-//     // console.log(task.owner)
-
-//     const user = await User.findById('6093f5898844312ba0288549')
-//     console.log(user);
-//     await user.populate('Post').execPopulate()
-//     console.log(user.posts)
-// }
-
-// main()
-
-
 if (process.env.NODE_ENV === 'production') {
     // Exprees will serve up production assets
     app.use(express.static('client/build'));
