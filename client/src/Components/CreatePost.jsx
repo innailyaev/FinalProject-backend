@@ -9,7 +9,6 @@ import parse from 'html-react-parser';
 
 const CreatePost =()=>{
     
-    // const parse = require('html-react-parser');
     const [title,setTitle] = useState('');
     const [description,setDescription] = useState('');
 
@@ -33,8 +32,8 @@ const CreatePost =()=>{
         }
     }
 
-    const getText = (data)=>{
-        setDescription(data);
+    const getText = async (data)=>{
+        await setDescription(data);
         createNewPost();
         console.log("from parent", data);
     }

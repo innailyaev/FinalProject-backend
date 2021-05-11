@@ -11,6 +11,9 @@
     justify-content: space-between;
     align-items: center;
 }  */
+.MuiPaper-root{
+
+}
 
 .tabs{
     background-color: rgb(238, 167, 167);
@@ -19,4 +22,5 @@
 .App .MuiTab-textColorPrimary {
     color: white;
     font-size: 18px;
+    /* height: 80px; */
 }

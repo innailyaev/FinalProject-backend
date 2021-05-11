@@ -1,5 +1,14 @@
 .homepage{
-    height:100vh ;
-    background: url('https://f6h8q2y9.stackpathcdn.com/wp-content/uploads/2018/12/travel.jpg' ) no-repeat center center/cover;
-    /* filter: brightness(80%) blur(1px); */
+    height: calc(100vh - 48px);
+    position: relative;
+}
+
+.imageContainer{
+    width: 100%;
+    min-height: 100%;
+    background-image: url('../Assets/Travel-map-camera.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(90%) blur(1px);
+
 }

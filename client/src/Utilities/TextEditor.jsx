@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import parse from 'html-react-parser';
 import '../CSS/EditorStyle.css';
 
 const TextEditor =({getText})=> {
        
     const [text,setText] = useState('');
 
-    const clackHandler =()=>{
+    const clickHandler =()=>{
         getText(text);
     }
 
@@ -29,7 +28,7 @@ const TextEditor =({getText})=> {
                 />
                 </div>
                 
-                <button className="postBtn" onClick={clackHandler}>POST</button>
+                <button className="postBtn" onClick={clickHandler}>POST</button>
             </div>
         );
 }

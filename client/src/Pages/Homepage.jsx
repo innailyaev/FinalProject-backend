@@ -10,7 +10,7 @@ const HomePage = () => {
 
         return(
             <div className="homepage">
-               <Link to="/signup"><Button content="SignUp" className="loginbtn"/></Link>
+                <div className="imageContainer"></div>
             </div>
         )
 }
