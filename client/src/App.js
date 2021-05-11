@@ -10,6 +10,7 @@ import Dashboard from './Components/Dashboard.jsx';
 import GetProfile from './Components/GetUserProfile.jsx';
 import CreatePost from './Components/CreatePost.jsx';
 import GetAllPosts from './Components/GetAllPosts.jsx';
+import Gallery from './Utilities/Gallery';
 
 
 
@@ -24,6 +25,8 @@ function App() {
           <Route path="/profile" exact component={GetProfile}/>
           <Route path="/newpost" exact component={CreatePost}/>
           <Route path="/myposts" exact component={GetAllPosts}/>
+          <Route path="/gallery" exact component={Gallery}/>
+
 
 
           <div>

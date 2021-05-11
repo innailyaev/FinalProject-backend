@@ -18,6 +18,8 @@ const HamburgerMenu =()=>{
               <a href="/profile"><li>See Profile</li></a>
               <a href="/newpost"><li>Create New Post</li></a>
               <a href="/myposts"><li>My Posts</li></a>
+              <a href="/gallery"><li>My Gallery</li></a>
+
               <LogOut/>
             </ul>
           </div>
