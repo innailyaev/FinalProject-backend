@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import {BrowserRouter as Router, Route,Switch,withRouter} from 'react-router-dom';
+import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
 import Header from './Components/Header.component.jsx';
 import HomePage from './Pages/Homepage.jsx';
 import SignUp from './Components/SignUp.jsx';
@@ -11,6 +11,7 @@ import GetProfile from './Components/GetUserProfile.jsx';
 import CreatePost from './Components/CreatePost.jsx';
 import GetAllPosts from './Components/GetAllPosts.jsx';
 import Gallery from './Utilities/Gallery';
+import Footer from './Components/Footer.jsx';
 
 
 
@@ -37,6 +38,7 @@ function App() {
             <Route path="/dashboard"><Dashboard/></Route>
           </div>
         </Switch>
+        <Footer/>
       </Router>
     </div>
   );
