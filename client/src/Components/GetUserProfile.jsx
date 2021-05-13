@@ -5,9 +5,8 @@ import '../CSS/UserPageStyle.css';
 
 const GetUserProfile =({getDetailes})=>{
       
-    const [user,setUser] = useState();
-    const [userName,setName] = useState();
-    const [userId,setUserId] = useState();
+    const [user,setUser] = useState('');
+    
 
     const getProfile= async () => {
         console.log("get");
@@ -17,10 +16,9 @@ const GetUserProfile =({getDetailes})=>{
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
         });
-            setName(response.data.name);
-            setUserId(response.data._id);
-            // console.log("from get profile",response);
-           
+            setUser(response.data);
+            await getDetailes(user);
+
         }catch(err){
                 console.log(err); 
         }
@@ -28,14 +26,13 @@ const GetUserProfile =({getDetailes})=>{
 
     useEffect(()=>{
         getProfile();
-        getDetailes(userId);
-        console.log("user id",userId);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[userId]);
+    },[]);
 
   return (
     <div className="userProfile">
-       <h1>Hello {userName}</h1> 
+       <h1>Hello {user?.name}</h1>
+       {/* <img src={`data:image/jpeg;base64,${user?.img}`} alt="profileImg" /> */}
     </div>
   );
 }

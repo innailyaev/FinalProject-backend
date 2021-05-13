@@ -7,7 +7,6 @@ const btoa = require('btoa');
 
 const singUp = async (req,res)=>{
     const {name,email,password} = req.body;
-    console.log(req.body);
    
     const user = new userModel({
         name,
@@ -31,7 +30,6 @@ const login = async (req,res)=>{
         const token = await user.generateAuthToken();
         res.status(200).json({user,token});
     }catch(e){
-        console.log(e);
         res.status(400).send("Unable to login");
     }
 }
@@ -43,7 +41,6 @@ const getUserById = async (req,res)=>{
     }
     try{
         const user = await userModel.find({_id:id});
-        console.log(user);
         if(user.length == 0){
             return res.status(404).send('User not found')
         }
@@ -80,7 +77,6 @@ const logoutAll = async (req,res)=>{
 const getUserProfile = async (req,res)=>{
     try{
     const user =  await userModel.findOne({ _id: req.user._id })
-    console.log("profile",user);
     res.send(user);  
     }catch(e){
         res.status(500).send(e);
@@ -119,7 +115,6 @@ const updateProfile = async (req,res)=>{
 //image upload
 const arrayBufferToBase64 = (buffer) => {
     let binary = '';
-    console.log("bufferrrrrrr",buffer);
     let bytes = [].slice.call(new Uint8Array(buffer));
     bytes.forEach((b) => binary += String.fromCharCode(b));
     return btoa(binary);
@@ -139,9 +134,7 @@ const uploadUserImage = async (req,res)=>{
 
 const getProfileImage = async (req,res) =>{ 
     try {
-        console.log("getprofile image", req.params.id);
         const user = await userModel.findById(req.params.id);
-        console.log("user",user);
         if (!user || !user.avatar) {
             throw new Error();
         }

@@ -10,7 +10,6 @@ const auth = async (req,res,next) =>{
             throw new Error('wrong token');
         }
         req.token=token;
-        console.log(user.avatar);
         req.user=user;
         next();
     }catch(e){
