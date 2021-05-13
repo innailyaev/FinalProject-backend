@@ -27,9 +27,7 @@ function App() {
           <Route path="/newpost" exact component={CreatePost}/>
           <Route path="/myposts" exact component={GetAllPosts}/>
           <Route path="/gallery" exact component={Gallery}/>
-
-
-
+          
           <div>
             <Header title={'LOGIN'}/>
             <Route path="/" exact component={HomePage} />
@@ -38,7 +36,7 @@ function App() {
             <Route path="/dashboard"><Dashboard/></Route>
           </div>
         </Switch>
-        <Footer/>
+        {/* <Footer/> */}
       </Router>
     </div>
   );

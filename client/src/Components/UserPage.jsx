@@ -16,36 +16,55 @@ const UserPage =()=>{
   const [image, setImage] = useState();
 
 
-  const uploadImage = async () => { 
+  const getUser = async ()=>{
+    console.log("get");
+        try{
+           axios.get('/api/users/profile',{
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }
+        }).then((req)=>{
+          console.log("hhhhhh",req);
+        });
+           
+        }catch(err){
+                console.log(err); 
+        }
+  }
+
+  const uploadImage = async (e) => { 
     // e.preventDefault();
     let formData = new FormData();
     formData.append('avatar', file);
     try{
       const response =await axios.post('/api/users/profile/avatar', formData,{
         headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
+            'Authorization': 'Bearer ' + localStorage.getItem('token'),
+            "Content-Type": "multipart/form-data"
         }
     });
-      console.log(response);
+    console.log(response.data.img);
+    setImage(response.data.img)
     }catch(e){
       console.log(e);
     }
      
   };
 
-  const getImage = async ()=>{
-    try{
-      const response =await axios.get(`/api/users/profile/${userId}/avatar`);
-      console.log(response.config.url);
-      setImage(response.config.url);
-    }catch(e){
-      console.log(e);
-    }
+  // const getImage = async ()=>{
+  //   try{
+  //     const response =await axios.get(`/api/users/profile/${userId}/avatar`);
+  //     console.log(response);
+  //     setImage(response.config.url);
+  //   }catch(e){
+  //     console.log(e);
+  //   }
      
-  }
+  // }
 
 //   const arrayBufferToBase64 = (buffer) => {
 //     let binary = '';
+//     console.log("bufferrrrrrr",buffer);
 //     let bytes = [].slice.call(new Uint8Array(buffer));
 //     bytes.forEach((b) => binary += String.fromCharCode(b));
 //     return window.btoa(binary);
@@ -54,25 +73,16 @@ const UserPage =()=>{
 
   useEffect(()=>{
     Aos.init({duration:2000});
-    getImage();
+    getUser();
+    // getImage();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
+  },[image])
 
   const clickHandler =()=>{
     uploadImage();
-    
   }
 
-  const clickHandler2 = ()=>{
-    console.log("dfffff",userId);
-    getImage();
-  }
 
-  const inputHandler =(e)=>{
-    console.log(e.target.files[0]);
-    setFile(e.target.files[0]);
-
-  }
 
   return (
     <div className="mainContainer">
@@ -84,15 +94,14 @@ const UserPage =()=>{
           <div className="images">
               <div className="coverImg">
                   <img src="https://prod-virtuoso.dotcmscloud.com/dA/188da7ea-f44f-4b9c-92f9-6a65064021c1/heroImage1/PowerfulReasons_hero.jpg" alt="travel"/>
-                  <input type="file" className="coverBtn" onChange={inputHandler}/>
+                  <input type="file" className="coverBtn" onChange={(e) => setFile(e.target.files[0])}/>
                   <button onClick={clickHandler}><i class="fas fa-camera fa-2x"></i>Upload</button>
-                  <button onClick={clickHandler2}>getImage</button>
-
+                  {/* <button onClick={clickHandler2}>getImage</button> */}
               </div>
               <div className="profileImg">
               <i class="fas fa-camera fa-2x"></i>
-              {/* <img src={`data:image/jpeg;base64,${arrayBufferToBase64(image)}`} alt="profileImg" /> */}
-                <img  src={`http://localhost:5000${image}`} alt="profileImg"/>
+              <img src={`data:image/jpeg;base64,${image}`} alt="profileImg" />
+                {/* <img  src={image} alt="profileImg"/> */}
               </div>
             </div>
         </div>

@@ -5,20 +5,21 @@ import '../CSS/UserPageStyle.css';
 
 const GetUserProfile =({getDetailes})=>{
       
+    const [user,setUser] = useState();
     const [userName,setName] = useState();
     const [userId,setUserId] = useState();
 
     const getProfile= async () => {
         console.log("get");
         try{
-           const response = await axios.get('/api/users/profile',{
+           const response = await axios.get('http://localhost:5000/api/users/profile',{
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
         });
             setName(response.data.name);
             setUserId(response.data._id);
-            console.log(response);
+            // console.log("from get profile",response);
            
         }catch(err){
                 console.log(err); 

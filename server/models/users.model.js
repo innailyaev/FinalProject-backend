@@ -46,7 +46,10 @@ const usersSchema = mongoose.Schema ({
   ],
   avatar: {
     type: Buffer
-}
+},
+  img: { 
+    type: String 
+  }
 });
 
 usersSchema.virtual('posts', {

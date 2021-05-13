@@ -1,10 +1,11 @@
 
 .tabs{
-    background-color: rgb(238, 167, 167);
+    background-color:  #FFFDD0;
+    box-shadow: 50px 50px 70px -20px rgba(0, 0, 0, 0.8);
 }
 
 .App .MuiTab-textColorPrimary {
-    color: white;
+    color: rgb(214, 130, 130);
     font-size: 18px;
     /* height: 80px; */
 }

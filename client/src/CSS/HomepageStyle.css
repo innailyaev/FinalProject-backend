@@ -1,6 +1,5 @@
 .homepage{
     height: calc(100vh - 48px);
-    position: relative;
 }
 
 .imageContainer{
@@ -28,5 +27,10 @@
     position: absolute;
     top: 20rem;
     left:35rem; 
+}
+
+.homepage .cards{
+    height: 200px;
+    border: solid rgb(0, 0, 0);
 }
 
