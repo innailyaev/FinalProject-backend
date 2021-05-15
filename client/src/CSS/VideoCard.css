@@ -1,0 +1,41 @@
+.videoContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+
+}
+
+.videoContainer > div{
+    border: solid black;
+    height: 400px;
+    width: 600px;
+}
+
+.videoContainer .MuiButton-root{
+    width: 150px;
+    height: 100px;
+    margin-top: 160px;
+    border: none;
+    outline: none;
+}
+
+.videoContainer .MuiButton-root:hover{
+    outline: none;
+    border: none;
+}
+
+.videoSection h2{
+    font-size: 3rem;
+    margin:0;
+    margin-bottom: 50px;
+}
+
+.imageDiv img{
+    height: 400px;
+    width: 600px;
+}
+
+.imageDiv .blockTitle{
+    position: absolute;
+}

@@ -29,8 +29,25 @@
     left:35rem; 
 }
 
-.homepage .cards{
-    height: 200px;
-    border: solid rgb(0, 0, 0);
+.cardsContainer{
+    height: 100vh;
 }
+
+.cardsContainer h2{
+    font-size:3rem;
+}
+
+.articleCards{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+/* section 3 */
+.videoSection{
+    height: 100vh;
+}
+
+
 

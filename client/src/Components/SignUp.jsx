@@ -3,7 +3,7 @@ import axios from 'axios';
 import validator from 'validator';
 import {Link,useHistory} from 'react-router-dom';
 import Button from '../Utilities/Button';
-import '../CSS/CardStyle.css';
+import '../CSS/signUpCard.css';
 
 
 

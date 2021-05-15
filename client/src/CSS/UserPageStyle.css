@@ -22,7 +22,7 @@
     position: relative;
 }
 
-.profileImg img{
+.profileDiv img{
     width: 230px;
     height: 230px;
     border-radius: 50%;
@@ -37,38 +37,49 @@
     margin: 0;
 }
 
-.coverBtn{
+.inputFile{
     position: absolute;
     right: 0;
-    top: 85%;
+    top: 80%;
     right: 5%;
-    height: 50px;
     width: 150px;
-    border-radius: 10px;
-    background-color: transparent;
+    background: transparent;
     cursor: pointer;
-    border: solid thin white;
     color: white;
     font-weight: bold;
+}
+
+.uploadBtn{
+    position: absolute;
+    top:80%;
+    right: 1%;
+    background: transparent;
+    color: green;
+    border: none;
+
 }
 
 .coverBtn i {
     margin-right: 10px;
 }
 
-.profileImg i{
+.profileImg{
+    position: relative;
+}
+
+.profileImg .inputFile{
     position: absolute;
     color: black;
     z-index: 20;
     bottom: -100px;
+    top:700px;
     right: 40%;
-    background-color: #f9c74f;
-    width: 60px;
-    height: 50px;
-    border-radius: 50%;
     padding-top: 10px;
     cursor: pointer;
 }
+
+
+
 
 /* Section 2 */
 .carouselContainer{
@@ -79,7 +90,7 @@
     margin-bottom: 500px;
 }
 
-.videoSection{
+/* .videoSection{
     height: 100vh;
 }
 
@@ -112,4 +123,4 @@
     font-size: 70px;
     margin:0;
     margin-bottom: 50px;
-}
+} */

@@ -2,16 +2,16 @@ import React,{useEffect, useState} from 'react';
 import axios from 'axios';
 import Carousel from '../Utilities/Carousel';
 import Aos from 'aos';
-import PopUp from '../Utilities/PopUp';
 import 'aos/dist/aos.css';
+import PopUp from '../Utilities/PopUp';
 import '../CSS/UserPageStyle.css';
 
 
-const GetUserProfile =({getDetailes})=>{
+const GetUserProfile =()=>{
       
     const [user,setUser] = useState('');
     const [file,setFile] = useState();
-    const [image, setImage] = useState();
+    const [image,setImage] = useState();
 
     
 
@@ -20,29 +20,21 @@ const GetUserProfile =({getDetailes})=>{
         let formData = new FormData();
         formData.append('avatar', file);
         try{
-          const response =await axios.post('/api/users/profile/avatar', formData,{
+          const response = await axios.post('/api/users/profile/avatar', formData,{
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('token'),
                 "Content-Type": "multipart/form-data"
             }
         });
-        setImage(response.data.img)
+        console.log(response);
+        // setUser(response.data);
         }catch(e){
           console.log(e);
         }
          
       };
     
-    
-      useEffect(()=>{
-        Aos.init({duration:2000});
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      },[])
-    
-      const clickHandler =()=>{
-        uploadImage();
-      }
-    
+  
     const getProfile= async () => {
         console.log("get");
         try{
@@ -52,7 +44,6 @@ const GetUserProfile =({getDetailes})=>{
             }
         });
             setUser(response.data);
-            await getDetailes(user);
 
         }catch(err){
                 console.log(err); 
@@ -65,8 +56,11 @@ const GetUserProfile =({getDetailes})=>{
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
+    const clickHandler =()=>{
+      uploadImage();
+    }
 
-
+  
   return (
     <div className="userProfile">
        <h1>Hello {user?.name}</h1>
@@ -74,12 +68,15 @@ const GetUserProfile =({getDetailes})=>{
           <div className="images">
               <div className="coverImg">
                   <img src="https://prod-virtuoso.dotcmscloud.com/dA/188da7ea-f44f-4b9c-92f9-6a65064021c1/heroImage1/PowerfulReasons_hero.jpg" alt="travel"/>
-                  <input type="file" className="coverBtn" onChange={(e) => setFile(e.target.files[0])}/>
-                  <button onClick={clickHandler}><i class="fas fa-camera fa-2x"></i>Upload</button>
+                    <input className="inputFile" type="file" id="file"  onChange={(e) => setFile(e.target.files[0])}/>
+                    <button className="uploadBtn" onClick={clickHandler}><i class="far fa-check-circle fa-2x"></i></button>
               </div>
-              <div className="profileImg">
-              <i class="fas fa-camera fa-2x"></i>
-              <img src={`data:image/jpeg;base64,${user?.img}`} alt="jjjj" />
+              <div className="profileDiv">
+              {/* <label for="profileImg"><i class="fas fa-camera fa-2x"></i></label>
+              <input type="file" id="profileImg" style={{display:"none", visibility:"none"}} onChange={inputHandler}/> */}
+              <img className="profileImg" src={`data:image/jpeg;base64,${user?.img}`} alt="profileImg" />
+              <input className="inputFile" type="file" id="file"  onChange={(e) => setFile(e.target.files[0])}/>
+              <button className="uploadBtn" onClick={clickHandler}><i class="far fa-check-circle fa-2x"></i></button>
               </div>
             </div>
         </div>

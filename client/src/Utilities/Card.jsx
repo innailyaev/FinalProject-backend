@@ -1,14 +1,15 @@
 import React from "react";
-import '../CSS/PostCard.css';
+import '../CSS/Card.css';
 
-const Card =({title,content,images})=>{
+const Card =({title,link,content,image})=>{
 
 
   return (
-    <div>
-        <div className="card"> 
-             <h1>{title}</h1>
-             <p>{content}</p>         
+    <div className="CardsContainer">
+        <div className="Card"> 
+             <h3>{title}</h3>
+                <img className="" src={image} alt="" />
+                <span>Read the article:</span><a href={link}>{content}</a>    
         </div>
             
         </div>
