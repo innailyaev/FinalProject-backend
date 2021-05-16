@@ -1,7 +1,8 @@
-import React,{useEffect, useState} from 'react';
+import React,{useState} from 'react';
 import axios from 'axios';
 import TextEditor from '../Utilities/TextEditor';
 import HamburgerMenu from '../Utilities/HamburgerMenu';
+import '../CSS/CreatePost.css';
 import parse from 'html-react-parser';
 
 
@@ -39,9 +40,13 @@ const CreatePost =()=>{
     }
 
   return (
-    <div>
+    <div className="createPostContainer">
         <HamburgerMenu/>
-        <h2>Blog Title: <input type="text" onChange={(e)=>setTitle(e.target.value)}/></h2>
+        <h1>My Blog</h1>
+        <div className="image"></div>
+        <div className="blogTitle">
+            <h2>Blog Title:</h2> <input type="text" onChange={(e)=>setTitle(e.target.value)}/>
+        </div>
         <TextEditor getText={getText}/>
     </div>
   

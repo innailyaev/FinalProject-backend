@@ -85,22 +85,7 @@ const GetUserProfile =()=>{
           <h2>Popular places in Europe</h2>
             <Carousel/>
           </div>
-        </div>
-        
-        <div className="videoSection" data-aos="fade-up">
-          <h2>Latest Videos</h2>
-            <div  className="videoContainer">
-              <div onClick={clickHandler} style={{backgroundImage:'url("https://lp-cms-production.imgix.net/2021-02/shutterstockRF_1347219839.jpg?auto=format&fit=crop&sharp=10&vib=20&ixlib=react-8.6.4&w=850")'}}>
-                  <PopUp/> 
-              </div>
-              <div>
-
-              </div>
-              <div>
-              </div>
-            </div>
-        </div>
-        
+        </div>   
     </div>
   );
 }

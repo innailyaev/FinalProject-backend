@@ -32,7 +32,7 @@ function App() {
             <Header title={'LOGIN'}/>
             <Route path="/" exact component={HomePage} />
             <Route path="/signup" exact component={SignUp} />
-            <Route path="/login"><LogIn /></Route>
+            <Route path="/login"><LogIn/></Route>
             <Route path="/dashboard"><Dashboard/></Route>
           </div>
         </Switch>

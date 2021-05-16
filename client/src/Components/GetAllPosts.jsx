@@ -35,13 +35,11 @@ const GetAllPosts =()=>{
   return (
     <div className="allPostsContainer">
         <HamburgerMenu/>
-
         {
             posts.map((post,index)=>{
                return  <SimpleAccordion key={index} title={post.title} content={parse(post.description)}></SimpleAccordion>
             })
-        }
-        
+        }  
     </div>
   
   );

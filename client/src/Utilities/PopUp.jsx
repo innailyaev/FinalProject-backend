@@ -15,17 +15,16 @@ const useStyles = makeStyles({
 
 function SimpleDialog(props) {
   useStyles();
-  const { onClose, selectedValue, open } = props;
+  const { onClose, selectedValue, open} = props;
 
   const handleClose = () => {
     onClose(selectedValue);
   };
 
- 
 
   return (
     <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/0cHbqAIw4zc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+             <iframe width="560" height="315" src={props.link} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </Dialog>
   );
 }
@@ -36,7 +35,7 @@ SimpleDialog.propTypes = {
   selectedValue: PropTypes.string.isRequired,
 };
 
-export default function SimpleDialogDemo() {
+export default function SimpleDialogDemo({link}) {
   const [open, setOpen] = React.useState(false);
   const [selectedValue, setSelectedValue] = React.useState(emails[1]);
 
@@ -54,7 +53,8 @@ export default function SimpleDialogDemo() {
       <Button variant="outlined" color="primary" onClick={handleClickOpen} className="youTubeBtn">
           <img src="https://i.pinimg.com/originals/19/7b/36/197b365922d1ea3aa1a932ff9bbda4a6.png" alt="" width="120" height="100"></img>
       </Button>
-      <SimpleDialog selectedValue={selectedValue} open={open} onClose={handleClose} />
+      <SimpleDialog selectedValue={selectedValue} open={open} onClose={handleClose} link={link}/>
     </div>
   );
 }
+

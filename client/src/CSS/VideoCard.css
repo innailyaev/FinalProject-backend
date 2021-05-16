@@ -3,26 +3,11 @@
     justify-content: space-around;
     align-items: center;
     position: relative;
-
 }
 
 .videoContainer > div{
-    border: solid black;
     height: 400px;
     width: 600px;
-}
-
-.videoContainer .MuiButton-root{
-    width: 150px;
-    height: 100px;
-    margin-top: 160px;
-    border: none;
-    outline: none;
-}
-
-.videoContainer .MuiButton-root:hover{
-    outline: none;
-    border: none;
 }
 
 .videoSection h2{
@@ -30,12 +15,44 @@
     margin:0;
     margin-bottom: 50px;
 }
-
+.imageDiv{
+    position: relative;
+}
 .imageDiv img{
     height: 400px;
     width: 600px;
 }
 
 .imageDiv .blockTitle{
+    background: rgba(0,0,0,0.5);
+    color:white;
     position: absolute;
+    width: 600px;
+    height: 150px;
+    text-align: center;
+    top:35%;
+    font-size: 2rem;
+}
+
+.videoContainer .MuiButton-root{
+    border: none;
+    outline: none;
+}
+
+.popUpDiv .MuiButton-root:hover{
+    outline: none;
+    border: none;
+}
+
+.popUpDiv{
+    visibility: hidden;
+    position: absolute;
+    top: 40%;
+    margin-left: 12%;
+    /* transition: 0.3s; */
+}
+
+.videoContainer > div:hover > .popUpDiv{
+    visibility:visible;
+    
 }

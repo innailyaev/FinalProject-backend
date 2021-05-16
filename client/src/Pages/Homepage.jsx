@@ -1,6 +1,7 @@
 import React,{useEffect} from "react";
 import Card from '../Utilities/Card';
 import VideoCard from '../Utilities/VideoCard';
+import InfoCard from '../Utilities/InfoCard';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import '../CSS/HomepageStyle.css';
@@ -33,17 +34,21 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div className="videoSection" data-aos="fade-up">
-                    <h2>Best YouTube Travel Channels</h2>
+                    <h2>Best YouTube Travel Vlogs</h2>
                         <div  className="videoContainer">
-                            <VideoCard title="Most Beautiful Destinations in Europe" link="https://www.youtube.com/watch?v=7lvXbfNBIQg" image="https://image.jimcdn.com/app/cms/image/transf/dimension=1190x10000:format=jpg/path/sa6549607c78f5c11/image/i2c81a69087b406ef/version/1456237268/most-beautiful-landscapes-in-europe-hallstatt-copyright-canadastock-european-best-destinations.jpg"/>
-                            <VideoCard/>
-                            <VideoCard/>
-                        </div>
-
-
-                       
-                        
-        </div>  
+                            <VideoCard title="MOST BEAUTIFUL DESTINATIONS IN EUROPE" link="https://www.youtube.com/embed/7lvXbfNBIQg" image="https://image.jimcdn.com/app/cms/image/transf/dimension=1190x10000:format=jpg/path/sa6549607c78f5c11/image/i2c81a69087b406ef/version/1456237268/most-beautiful-landscapes-in-europe-hallstatt-copyright-canadastock-european-best-destinations.jpg"/>
+                            <VideoCard title="A WEEK IN PARIS" link="https://www.youtube.com/embed/tKXrpRrj7Ow" image="https://i.natgeofe.com/n/f8b59838-5bb9-44c3-b8ac-bc1877683da8/covid-paris-france-daniels-23.jpg"/>
+                            <VideoCard title="LUXURY MALDIVES EXPERIENCE" link="https://www.youtube.com/embed/FaeQtn3-h4w" image="https://www.livetraveleatplay.com/domain/0/content/604170007304/604170007304-img1.jpg"/>
+                        </div>               
+                </div>
+                <div data-aos="fade-up" className="cardsContainer">
+                    <h2>Best Countries For Food Around The World</h2>
+                    <div  className="foodContainer">
+                            <InfoCard title="ITALY" image="https://1.bp.blogspot.com/-oN1InZ0dfBs/Xtamd8gXAaI/AAAAAAAAAC4/XU4Ih_Bb0rED6wQvtZnBDNHGU5GfVeAiQCK4BGAsYHg/pizza-3007395_1920.jpg" content="Whenever there’s a discussion on the countries known for their food, Italy never misses on the list. Italian dishes are a favorite for most people. Their diets are a blend of colors that leave an unforgettable taste in the mouth. A simple pasta meal by an Italian chef will be finger licking sweet. And it’s just not the taste that will wow you; it will be good to look at! Italian menu popular dishes include pizza, cheesy risottos, and pasta."/>
+                            <InfoCard title="MEXICO" image="https://pixfeeds.com/images/mexico/food/1280-505270190-tacos-with-minced-meat-with-beans.jpg" content="Mexico is definitely a go-to country if you’re in search of delicious cuisines. Like their neighbors the USA, Mexican cuisine has its origins in the European continent with some influence from Indian and African dishes. Almost all of the delicious cuisines come from European countries that have featured on most of the top 10 countries with the best food lists. However, most have some Spanish history."/>
+                            <InfoCard title="JAPAN" image="https://www.jetsetter.com/wp-content/uploads/sites/7/2018/04/2TW0tmbd-1380x1035.jpeg" content="Japan is meticulous in everything they do include their cooking. They’ve also maintained their indigenous culture and traditions. When the rest of the world uses forks and knives, they are still using chopsticks. What’s even more interesting is that they made the rest of the world follow suit when enjoying foods from their country. You’ve probably had Sake, Ramen, Sushi, Tempura, Unagi or Sashimi – some of their favorites – and you did so with chopsticks."/>
+                    </div>
+                </div>  
             </div>
         )
 }

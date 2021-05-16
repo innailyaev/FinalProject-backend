@@ -1,0 +1,21 @@
+.createPostContainer{
+    height: 100vh;
+    border: solid black;
+}
+
+.createPostContainer h1{
+    font-size: 70px;
+    margin: 0;
+}
+
+.createPostContainer .image{
+    width: 100%;
+    height: 50%;
+    background: url("https://neilpatel.com/wp-content/uploads/2018/10/blog.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: solid red;
+}
+.blogTitle h2{
+    font-size: 20px;
+}

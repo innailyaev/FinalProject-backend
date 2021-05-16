@@ -7,15 +7,13 @@ const VideoCard =({title,link,content,image})=>{
 
   return (
     <div className="VideoCardsContainer">
-        <div className="videoCard"> 
-            <div className="imageDiv" >
+            <div className="imageDiv">
                 <img src={image} alt=""></img>
+                <div className="blockTitle"><h3>{title}</h3></div> 
             </div>
-                <div className="blockTitle"><h3>{title}</h3></div>
-                <PopUp/> 
-      
-        </div>
-            
+            <div className="popUpDiv">
+                <PopUp link={link}/> 
+            </div>    
     </div>
   );
 }
