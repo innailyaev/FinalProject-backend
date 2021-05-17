@@ -1,56 +1,115 @@
-import React,{useState} from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 import TextEditor from '../Utilities/TextEditor';
 import HamburgerMenu from '../Utilities/HamburgerMenu';
 import '../CSS/CreatePost.css';
-import parse from 'html-react-parser';
 
+const CreatePost = () => {
+  const [title, setTitle] = useState ('');
+  const [description, setDescription] = useState ('');
+  const [files, setFiles] = useState ();
+  const [images, setImages] = useState ();
 
+  const createNewPost = async (data) => {
+    console.log ('get');
+    let formData = new FormData ();
+    for (var i = 0; i < files.length; i++) {
+      formData.append ('images', files[i]);
+    }
+    formData.append ('title', title);
+    console.log ('description', data);
+    formData.append ('description', data);
+    try {
+      const response = await axios.post ('/api/posts/posts', formData, {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem ('token'),
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      console.log (response);
+      setImages (response.data.images);
+    } catch (err) {
+      console.log (err);
+    }
+  };
 
+  // const uploadImages = async (e) => {
+  //     // e.preventDefault();
+  //     let formData = new FormData();
+  //     for(var i=0;i<files.length;i++){
+  //         formData.append('images', files[i]);
+  //     }
 
-const CreatePost =()=>{
+  //     try{
+  //       const response = await axios.post('/api/posts/posts/photos/upload', formData,{
+  //         headers: {
+  //             'Authorization': 'Bearer ' + localStorage.getItem('token'),
+  //             "Content-Type": "multipart/form-data"
+  //         }
+  //     });
+  //     console.log(response);
+  //     setImages(response.data.images);
+  //     }catch(e){
+  //       console.log(e);
+  //     }
+
+  //   };
+
+  const getText = async data => {
     
-    const [title,setTitle] = useState('');
-    const [description,setDescription] = useState('');
+    setDescription (data);
+    setTimeout(() => {
+         createNewPost (data);
+    }, 0);
+    
+  };
 
-    const createNewPost= async () => {
-        console.log("get");
-        try{
-           const response = await axios.post('/api/posts/posts',{
-            title:title,
-            description:description
-           },
-            {
-                headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('token')
-                }
-            
-        });
-            console.log(response);
-           
-        }catch(err){
-                console.log(err); 
-        }
-    }
-
-    const getText = async (data)=>{
-        await setDescription(data);
-        createNewPost();
-        console.log("from parent", data);
-    }
+  const multiImagesInput = e => {
+    setFiles (e.target.files);
+    console.log (e.target.files.length);
+  };
 
   return (
     <div className="createPostContainer">
-        <HamburgerMenu/>
-        <h1>My Blog</h1>
-        <div className="image"></div>
-        <div className="blogTitle">
-            <h2>Blog Title:</h2> <input type="text" onChange={(e)=>setTitle(e.target.value)}/>
-        </div>
-        <TextEditor getText={getText}/>
+      <HamburgerMenu />
+      <div className="image" />
+      <h1>My</h1>
+      <div className="blogTitle">
+        <span style={{color: '#892b64'}}>Blog Title </span>
+        {' '}
+        <span> (Place in the world):</span>
+        {' '}
+        <input type="text" onChange={e => setTitle (e.target.value)} />
+      </div>
+      <div className="addImagesContainer">
+        <label for="files">Select photos:</label>
+        <input
+          type="file"
+          id="files"
+          name="files"
+          multiple
+          onChange={multiImagesInput}
+        />
+        <br />
+      </div>
+      <div>
+        {images
+          ? images.map ((img, index) => {
+              return (
+                <img
+                  key={index}
+                  className="postImg"
+                  src={`data:image/jpeg;base64,${img}`}
+                  alt="postImg"
+                />
+              );
+            })
+          : null}
+      </div>
+      <TextEditor getText={getText} />
+
     </div>
-  
   );
-}
+};
 
 export default CreatePost;

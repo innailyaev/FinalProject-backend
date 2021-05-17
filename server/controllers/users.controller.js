@@ -112,7 +112,7 @@ const updateProfile = async (req,res)=>{
     }
 }
 
-//image upload
+//Image upload
 const arrayBufferToBase64 = (buffer) => {
     let binary = '';
     let bytes = [].slice.call(new Uint8Array(buffer));

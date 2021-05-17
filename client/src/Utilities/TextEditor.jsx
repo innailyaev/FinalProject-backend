@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import Button from '../Utilities/Button';
 import '../CSS/EditorStyle.css';
 
 const TextEditor =({getText})=> {
@@ -26,9 +27,8 @@ const TextEditor =({getText})=> {
                         setText(data);
                     }}
                 />
-                </div>
-                
-                <button className="postBtn" onClick={clickHandler}>POST</button>
+                </div>  
+                <Button className="postBtn" click={clickHandler} content="POST"/>
             </div>
         );
 }

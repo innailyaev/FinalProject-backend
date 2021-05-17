@@ -1,21 +1,62 @@
 .createPostContainer{
     height: 100vh;
-    border: solid black;
-}
-
-.createPostContainer h1{
-    font-size: 70px;
-    margin: 0;
+    font-family: 'Pacifico', cursive;
 }
 
 .createPostContainer .image{
     width: 100%;
-    height: 50%;
-    background: url("https://neilpatel.com/wp-content/uploads/2018/10/blog.jpg");
+    height: 60%;
+    position: relative;
+    background: url("../Assets//blog.jpg");
     background-repeat: no-repeat;
-    background-size: contain;
-    border: solid red;
+    background-size: cover;
+    margin-bottom: 20px;
 }
-.blogTitle h2{
-    font-size: 20px;
+
+.createPostContainer h1{
+    position: absolute;
+    color:#892b64;
+    top:0;
+    left:48%;
+    font-size: 100px;
+    margin: 0;
+}
+.blogTitle{
+    margin-bottom: 50px;
+
+}
+.blogTitle span{
+    font-size: 50px;
+    margin-right: 20px;
+}
+
+.blogTitle input{
+    font-family: 'Pacifico', cursive;
+    background: none;
+    border: none;
+    border-bottom: solid black;
+    width: 200px;
+    font-size: 30px;
+}
+
+.blogTitle input:focus{
+    outline: none;
+}
+
+.addImagesContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addImagesContainer label{
+    font-size: 30px;
+    margin-right: 15px;
+}
+
+.addImagesContainer .btn{
+    background: transparent;
+    color:#892b64;
+    border: none;
+    cursor: pointer;
 }

@@ -11,7 +11,8 @@ const GetUserProfile =()=>{
       
     const [user,setUser] = useState('');
     const [file,setFile] = useState();
-    const [image,setImage] = useState();
+    const [userName,setName] = useState('');
+    const [userImage,setImage] = useState('');
 
     
 
@@ -27,7 +28,7 @@ const GetUserProfile =()=>{
             }
         });
         console.log(response);
-        // setUser(response.data);
+        setImage(response.data.img);
         }catch(e){
           console.log(e);
         }
@@ -54,7 +55,7 @@ const GetUserProfile =()=>{
         getProfile();
         Aos.init({duration:2000});
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[]);
+    },[userImage]);
 
     const clickHandler =()=>{
       uploadImage();
@@ -74,7 +75,9 @@ const GetUserProfile =()=>{
               <div className="profileDiv">
               {/* <label for="profileImg"><i class="fas fa-camera fa-2x"></i></label>
               <input type="file" id="profileImg" style={{display:"none", visibility:"none"}} onChange={inputHandler}/> */}
-              <img className="profileImg" src={`data:image/jpeg;base64,${user?.img}`} alt="profileImg" />
+              {
+                (user.img) ? <img className="profileImg" src={`data:image/jpeg;base64,${user?.img}`} alt="profileImg" /> : <img className="profileImg" src={`data:image/jpeg;base64,${userImage}`} alt="profileImg" />
+              }
               <input className="inputFile" type="file" id="file"  onChange={(e) => setFile(e.target.files[0])}/>
               <button className="uploadBtn" onClick={clickHandler}><i class="far fa-check-circle fa-2x"></i></button>
               </div>

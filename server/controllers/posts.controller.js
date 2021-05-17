@@ -1,15 +1,28 @@
 const postsModel = require('../models/posts.model');
+const sharp = require('sharp');
+const btoa = require('btoa');
 
 const createPost = async (req,res)=>{
-   console.log(req.body);
+    const postDetails = { title, description} = req.body;
+    console.log(postDetails);
+    let bufferImgArr=[];
+    let base64ImgArr=[];
+    try{
     const post = new postsModel({
         ...req.body,
-        owner: req.user._id
+        owner: req.user._id,
     });
 
-    try{ 
-        await post.save();
-        res.status(200).send(post);
+    bufferImgArr=await Promise.all(req.files.map(async(file)=>{
+        return await sharp(file.buffer).resize({ width: 700, height: 700 }).png().toBuffer();
+    }))
+    // console.log(bufferImgArr);
+    base64ImgArr = bufferImgArr.map((buffer)=>{
+        return arrayBufferToBase64(buffer);
+    })
+    post.images=base64ImgArr;
+    await post.save();
+    res.status(200).send(post);
     }catch (e){
         res.json({"error": e});
     }
@@ -42,7 +55,7 @@ const getPostById = async (req,res)=>{
 
 const updatePost = async (req,res)=>{
     const updates = Object.keys(req.body)
-    const allowedUpdates = ['dedcription', 'images']
+    const allowedUpdates = ['description', 'images']
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
 
     if (!isValidOperation) {
@@ -78,12 +91,47 @@ const deletePost = async (req,res)=>{
     }
 }
 
+//Images upload
+const arrayBufferToBase64 = (buffer) => {
+    let binary = '';
+    let bytes = [].slice.call(new Uint8Array(buffer));
+    bytes.forEach((b) => binary += String.fromCharCode(b));
+    return btoa(binary);
+}
+
+const uploadBlogImages = async (req,res)=>{
+    let bufferImgArr=[];
+    let base64ImgArr=[];
+    try {
+        bufferImgArr=await Promise.all(req.files.map(async(file)=>{
+            return await sharp(file.buffer).resize({ width: 500, height: 500 }).png().toBuffer();
+        }))
+        // console.log(bufferImgArr);
+        base64ImgArr = bufferImgArr.map((buffer)=>{
+            return arrayBufferToBase64(buffer);
+        })
+        // console.log(base64ImgArr);
+        const post = await postsModel.findOne({"owner": req.user._id})
+        console.log(post);
+        post.images = base64ImgArr;
+        // if (!post) {
+        //     return res.status(404).send()
+        // }
+
+        await post.save();
+        res.status(200).send(post);
+    }catch (err) {
+        res.status(404).send(err.message);
+    }
+}
+
 
 module.exports = {
     createPost,
     getPosts,
     getPostById,
     updatePost,
-    deletePost
+    deletePost,
+    uploadBlogImages
 }
 

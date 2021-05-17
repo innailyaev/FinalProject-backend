@@ -12,7 +12,9 @@ const PostsSchema = mongoose.Schema ({
         require:true,
         trim:true
     },
-
+    image: {
+        type: Buffer
+    },
     images:{
         type: Array,
         required:false,
