@@ -4,12 +4,13 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import Button from '../Utilities/Button';
 import '../CSS/EditorStyle.css';
 
-const TextEditor =({getText})=> {
+const TextEditor =({createPost})=> {
        
     const [text,setText] = useState('');
 
     const clickHandler =()=>{
-        getText(text);
+        // getText(text);
+        createPost(text);
     }
 
     return (

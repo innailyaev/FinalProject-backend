@@ -11,7 +11,6 @@ const GetUserProfile =()=>{
       
     const [user,setUser] = useState('');
     const [file,setFile] = useState();
-    const [userName,setName] = useState('');
     const [userImage,setImage] = useState('');
 
     

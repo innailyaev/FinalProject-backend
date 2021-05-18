@@ -55,15 +55,6 @@ const CreatePost = () => {
 
   //   };
 
-  const getText = async data => {
-    
-    setDescription (data);
-    setTimeout(() => {
-         createNewPost (data);
-    }, 0);
-    
-  };
-
   const multiImagesInput = e => {
     setFiles (e.target.files);
     console.log (e.target.files.length);
@@ -106,7 +97,7 @@ const CreatePost = () => {
             })
           : null}
       </div>
-      <TextEditor getText={getText} />
+      <TextEditor createPost={createNewPost} />
 
     </div>
   );

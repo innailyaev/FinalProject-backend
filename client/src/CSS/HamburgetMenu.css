@@ -1,5 +1,4 @@
-
- #menuToggle
+#menuToggle
  {
    display: block;
    position: absolute;
@@ -12,15 +11,9 @@
  #menuToggle a
  {
    text-decoration: none;
-   color: #232323;
+   color: #bb2121;
    transition: color 0.1s ease;
  }
- 
- #menuToggle a:hover
- {
-   color: tomato;
- }
- 
  
  #menuToggle input
  {
@@ -36,7 +29,7 @@
   }
  
  /*
-  * Just a quick hamburger
+  * hamburger
   */
  #menuToggle span
  {
@@ -75,18 +68,12 @@
    background: #232323;
  }
  
- /*
-  * But let's hide the middle one.
-  */
  #menuToggle input:checked ~ span:nth-last-child(3)
  {
    opacity: 0;
    transform: rotate(0deg) scale(0.2, 0.2);
  }
  
- /*
-  * Ohyeah and the last one should go the other direction
-  */
  #menuToggle input:checked ~ span:nth-last-child(2)
  {
    transform: rotate(-45deg) translate(0, -1px);
@@ -98,13 +85,14 @@
   */
  #menu
  {
+  font-family: 'Pacifico', cursive;
    position: absolute;
-   width: 200px;
-   height: 500px;
+   width: 250px;
+   height: 84vh;
    margin: -100px 0 0 -50px;
    padding: 50px;
    padding-top: 125px;
-   background: #ededed;
+   background: #f0e4ce;
    list-style-type: none;
    -webkit-font-smoothing: antialiased;
    transform-origin: 0% 0%;
@@ -115,13 +103,21 @@
  #menu li
  {
    padding: 10px 0;
-   font-size: 22px;
+   font-size: 25px;
+   color: black;
  }
  
- /*
-  * And let's slide it in from the left
-  */
+ #menuToggle li:hover
+ {
+   color: #892b64;
+ }
+
  #menuToggle input:checked ~ ul
  {
    transform: none;
+ }
+
+ #menu p{
+   font-size: 35px;
+   color:#892b64;
  }

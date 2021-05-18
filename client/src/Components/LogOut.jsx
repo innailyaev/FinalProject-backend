@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import Button from '../Utilities/Button';
+import '../CSS/LogOut.css';
 
 
 const LogOut =()=>{
@@ -31,8 +33,8 @@ const LogOut =()=>{
     }
 
   return (
-    <div>
-        <Link to={`/`}><button onClick={clickHandler} className="btn">LogOut</button></Link>
+    <div className="logout">
+        <Link to={`/`}><Button click={clickHandler} className="btn" content="LogOut"/></Link>
     </div>
   );
 }
