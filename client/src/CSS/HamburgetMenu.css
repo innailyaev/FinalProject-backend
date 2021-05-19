@@ -109,7 +109,7 @@
  
  #menuToggle li:hover
  {
-   color: #892b64;
+   color: var(--primeryColor);
  }
 
  #menuToggle input:checked ~ ul

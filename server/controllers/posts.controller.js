@@ -53,6 +53,18 @@ const getPostById = async (req,res)=>{
     }
 }
 
+const getAllUsersPosts = async (req,res)=>{
+    try{
+        const posts = await postsModel.find();
+        if(posts.length == 0){
+            return res.status(200).send('No posts yet');
+        }
+        res.send(posts);
+    }catch (e){
+        res.status(500).send(e);}
+
+}
+
 const updatePost = async (req,res)=>{
     const updates = Object.keys(req.body)
     const allowedUpdates = ['description', 'images']
@@ -132,6 +144,7 @@ module.exports = {
     getPostById,
     updatePost,
     deletePost,
-    uploadBlogImages
+    uploadBlogImages,
+    getAllUsersPosts
 }
 

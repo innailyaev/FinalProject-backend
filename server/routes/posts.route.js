@@ -8,6 +8,8 @@ router.post('/posts',auth,upload.array('images',12),(req,res)=>{
     postsController.createPost(req,res); 
 }).get('/posts', auth, (req, res) => {
     postsController.getPosts(req,res);
+}).get('/posts/allposts',(req,res)=>{
+    postsController.getAllUsersPosts(req,res);
 }).get('/posts/:id', auth, async (req, res) => {
     postsController.getPostById(req,res);
 }).put('/posts/:id', auth, async (req, res) => {

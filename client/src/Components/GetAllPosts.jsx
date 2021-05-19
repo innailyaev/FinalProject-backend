@@ -12,7 +12,6 @@ const GetAllPosts =()=>{
       
     const [posts,setPosts] = useState([]);
     const [loaderToggle,setLoaderToggle] = useState(true);
-    const maxLength = 30;
     
     const getPosts= async () => {
         console.log("get");

@@ -15,7 +15,7 @@
 
 .createPostContainer h1{
     position: absolute;
-    color:#892b64;
+    color:var(--primeryColor);
     top:0;
     left:48%;
     font-size: 100px;
@@ -56,7 +56,7 @@
 
 .addImagesContainer .btn{
     background: transparent;
-    color:#892b64;
+    color:var(--primeryColor);
     border: none;
     cursor: pointer;
 }

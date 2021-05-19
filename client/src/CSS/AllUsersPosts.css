@@ -1,0 +1,27 @@
+.postsContainer {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.postsContainer .imageDiv{
+    height: 600px;
+    width: 400px;
+    background-image: url('../Assets/travel.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.8);
+    margin-right: 50px;
+
+    /* border-radius: 50%; */
+
+}
+
+.postsContainer h1{
+    font-size: 5rem;
+}
+
+.postsContainer h2{
+    color: var(--primeryColor);
+}
