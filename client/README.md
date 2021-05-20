@@ -28,7 +28,7 @@ If I were to make the app again I would give myself more time to create a respon
 Use API and add search places in the world and get more information. 
 
 ## Visual
-![plot](./client/src/Assets/travelApp.png)
+![plot](./src/Assets/travelApp.png)
 
 
 [link to the site](https://finalprojectinna.herokuapp.com/)
