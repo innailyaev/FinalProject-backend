@@ -1,3 +1,9 @@
+.postsCardsSection{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .postsContainer {
     height: 100vh;
     display: flex;
@@ -24,4 +30,29 @@
 
 .postsContainer h2{
     color: var(--primeryColor);
+}
+
+.discoverTitle h2{
+    font-size: 50px;
+    left: 30px;
+} 
+
+.postsCards{
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    align-items: center;
+}
+
+.postsCardsSection input{
+    background: none;
+    border: none;
+    border-bottom: solid var(--primeryColor);
+    margin-bottom: 50px;
+    font-size: 20px;
+}
+
+.postsCardsSection input:focus{
+    outline: none;
 }

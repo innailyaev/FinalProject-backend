@@ -1,0 +1,40 @@
+.postCardContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+.postCardContainer > div{
+    height: 400px;
+    width: 500px;
+    margin-bottom: 50px;
+    box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.8);
+
+}
+
+.postImg{
+    position: relative;
+}
+.postImg img{
+    height: 400px;
+    width: 500px;
+}
+
+.postImg .blockTitle{
+    background: rgba(0,0,0,0.5);
+    color:white;
+    position: absolute;
+    width: 500px;
+    height: 150px;
+    text-align: center;
+    top:35%;
+    font-size: 2rem;
+}
+
+.showPostBtn{
+    background: transparent;
+    height: 30px;
+    width: 120px;
+    color: white;
+}

@@ -1,0 +1,63 @@
+/* The popUpBox */
+.modal {
+position: absolute; 
+z-index: 2; /* Sit on top */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: rgba(0, 0, 0, 0.7);
+transition:all 2s ease-in-out;
+animation-name: animatetop;
+animation-duration: 0.6s;
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+  /* popUpBox Content*/
+.modalContent {
+text-align: center;
+background-color: white;
+background-size: cover;
+background-repeat: no-repeat;
+margin: 10% auto; 
+padding: 40px;
+border-radius: 10px;
+width: 60%; /* Could be more or less, depending on screen size */
+height: fit-content;
+  
+}
+
+.modalContent p{
+  font-family: 'Pacifico', cursive;
+
+}
+  /* The Close Button */
+
+.close{
+    color: #aaa;
+    float: right;
+    font-size: 40px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+
+.close:hover,
+.close:focus {
+color: #1a759f;
+text-decoration: none;
+cursor: pointer;
+}
+
+

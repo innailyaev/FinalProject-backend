@@ -116,7 +116,7 @@ const uploadBlogImages = async (req,res)=>{
     let base64ImgArr=[];
     try {
         bufferImgArr=await Promise.all(req.files.map(async(file)=>{
-            return await sharp(file.buffer).resize({ width: 500, height: 500 }).png().toBuffer();
+            return await sharp(file.buffer).resize({ width: 250, height: 250 }).png().toBuffer();
         }))
         // console.log(bufferImgArr);
         base64ImgArr = bufferImgArr.map((buffer)=>{
