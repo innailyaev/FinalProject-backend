@@ -2,6 +2,7 @@ import React,{useEffect} from "react";
 import Card from '../Utilities/Card';
 import VideoCard from '../Utilities/VideoCard';
 import InfoCard from '../Utilities/InfoCard';
+import {Link} from 'react-router-dom';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import '../CSS/HomepageStyle.css';
@@ -19,6 +20,7 @@ const HomePage = () => {
                 <div className="imageContainer"></div>
                 <div className="titleBlock">
                     <h1>Tell us about your adventure <br></br>around the world</h1>
+                    <Link to={`/signup`}><button className="createPostBtn">Create Your Post</button></Link>
                 </div>
                 <div data-aos="fade-up" className="cardsContainer">
                     <h2>Featured Topics & Articles</h2>
