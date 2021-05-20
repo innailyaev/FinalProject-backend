@@ -20,7 +20,7 @@ const CreatePost = () => {
     console.log ('description', data);
     formData.append ('description', data);
     try {
-      const response = await axios.post ('/api/posts/posts', formData, {
+      const response = await axios.post ('https://finalprojectinna.herokuapp.com/api/posts/posts', formData, {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem ('token'),
           'Content-Type': 'multipart/form-data',
@@ -57,7 +57,6 @@ const CreatePost = () => {
 
   const multiImagesInput = e => {
     setFiles (e.target.files);
-    console.log (e.target.files.length);
   };
 
   return (

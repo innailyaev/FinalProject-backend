@@ -10,7 +10,7 @@ const LogOut =()=>{
     const postLogOut= async () => {
         console.log("post");
         try{
-           const response = await axios.post('/api/users/logout', {});
+           const response = await axios.post('https://finalprojectinna.herokuapp.com/api/users/logout', {});
             console.log(response);
            
             

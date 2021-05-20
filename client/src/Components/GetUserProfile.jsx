@@ -20,7 +20,7 @@ const GetUserProfile =()=>{
         let formData = new FormData();
         formData.append('avatar', file);
         try{
-          const response = await axios.post('/api/users/profile/avatar', formData,{
+          const response = await axios.post('https://finalprojectinna.herokuapp.com/api/users/profile/avatar', formData,{
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('token'),
                 "Content-Type": "multipart/form-data"
@@ -38,7 +38,7 @@ const GetUserProfile =()=>{
     const getProfile= async () => {
         console.log("get");
         try{
-           const response = await axios.get('http://localhost:5000/api/users/profile',{
+           const response = await axios.get('https://finalprojectinna.herokuapp.com/api/users/profile',{
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
@@ -79,7 +79,7 @@ const GetUserProfile =()=>{
                 (user.img) ? <img className="profileImg" src={`data:image/jpeg;base64,${user?.img}`} alt="p" /> : (userImage) ? <img className="profileImg" src={`data:image/jpeg;base64,${userImage}`} alt="p" /> : <img className="profileImg" src={'https://www.pngitem.com/pimgs/m/404-4042686_my-profile-person-icon-png-free-transparent-png.png'} alt="p" />
               }
               <input className="inputFile" type="file" id="file"  onChange={(e) => setFile(e.target.files[0])}/>
-              <button className="uploadBtn" onClick={clickHandler}><i class="far fa-check-circle fa-2x"></i></button>
+              <button className="uploadBtn" onClick={clickHandler}><i className="far fa-check-circle fa-2x"></i></button>
               </div>
             </div>
         </div>

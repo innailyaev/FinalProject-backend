@@ -16,7 +16,7 @@ const GetAllPosts =()=>{
     const getPosts= async () => {
         console.log("get");
         try{
-           const response = await axios.get('/api/posts/posts',{
+           const response = await axios.get('https://finalprojectinna.herokuapp.com/api/posts/posts',{
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }

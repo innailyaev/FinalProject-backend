@@ -31,7 +31,7 @@ const SignApp =()=>{
 
         console.log("post");
         try{
-           const response = await axios.post('/api/users/signup', {
+           const response = await axios.post('https://finalprojectinna.herokuapp.com/api/users/signup', {
                 name:name,
                 email:email,
                 password:password

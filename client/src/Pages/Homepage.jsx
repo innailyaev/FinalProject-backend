@@ -17,7 +17,7 @@ const HomePage = () => {
         return(
             <div className="homepage">
                 <div className="imageContainer"></div>
-                <div class="titleBlock">
+                <div className="titleBlock">
                     <h1>Tell us about your adventure <br></br>around the world</h1>
                 </div>
                 <div data-aos="fade-up" className="cardsContainer">

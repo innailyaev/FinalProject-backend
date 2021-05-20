@@ -4,7 +4,9 @@ import LogOut from '../Components/LogOut';
 import '../CSS/HamburgetMenu.css';
 
 const HamburgerMenu = () => {
+
   const [user, setUser] = useState ();
+  const [userImage,setUserImage] = useState();
 
   const getProfile = async () => {
     console.log ('get');
@@ -19,6 +21,7 @@ const HamburgerMenu = () => {
       );
       console.log (response.data);
       setUser (response.data);
+      setUserImage(response.data.img)
     } catch (err) {
       console.log (err);
     }
