@@ -67,9 +67,6 @@ const CreatePost = () => {
       <h1>My</h1>
       <div className="blogTitle">
         <span style={{color: '#892b64'}}>Blog Title </span>
-        {' '}
-        <span> (Place in the world):</span>
-        {' '}
         <input type="text" onChange={e => setTitle (e.target.value)} />
       </div>
       <div className="addImagesContainer">

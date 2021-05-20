@@ -14,7 +14,7 @@
  
 .homepage h1{
     font-size: 70px;
-    color: white;
+    color: var(--primeryColor);
     position: absolute;
     top: 20rem;
     left:35rem; 

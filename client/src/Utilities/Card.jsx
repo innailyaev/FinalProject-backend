@@ -9,7 +9,7 @@ const Card =({title,link,content,image})=>{
         <div className="Card"> 
              <h3>{title}</h3>
                 <img className="" src={image} alt="" />
-                <span>Read the article:</span><a href={link}>{content}</a>    
+                <span>Read the article:</span><a href={link} rel="noreferrer" target="_blank">{content}</a>    
         </div>
             
         </div>

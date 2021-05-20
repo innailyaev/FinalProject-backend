@@ -35,16 +35,22 @@ const GetAllPosts =()=>{
     },[]);
 
   return (
-    <div className="allPostsContainer">
+    <div className="allPostsMain">
         <HamburgerMenu/>
-        {
-                (loaderToggle) ? <Spinner/> :null
-        }
-        {
-            posts.map((post,index)=>{
-               return  <SimpleAccordion key={index} title={post.title} content={parse(post.description)}></SimpleAccordion>
-            })
-        }  
+        <h1>My Posts</h1>
+        <div className="allPostsContainer">
+                <div className="img"></div>
+                {
+                        (loaderToggle) ? <Spinner/> :null
+                }
+                <div className="accordion">
+                {
+                    posts.map((post,index)=>{
+                    return  <SimpleAccordion key={index} title={post.title} content={parse(post.description)}></SimpleAccordion>
+                    })
+                } 
+                </div> 
+        </div>
     </div>
   
   );

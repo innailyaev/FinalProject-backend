@@ -32,6 +32,7 @@ const SimpleAccordion =({title,content}) =>{
         <AccordionDetails>
           <Typography>
             {content}
+            {/* <button>View Images</button> */}
           </Typography>
         </AccordionDetails>
       </Accordion>
