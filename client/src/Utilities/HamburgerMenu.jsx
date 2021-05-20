@@ -51,8 +51,8 @@ const HamburgerMenu = () => {
             <a href="/"><li>Home</li></a>
             <a href="/hello"><li>My Profile</li></a>
             <a href="/newpost"><li>Create New Post</li></a>
-            <a href="/myposts"><li>My Posts</li></a>
-            <a href="/gallery"><li style={{marginBottom:'40px'}}>My Gallery</li></a>
+            <a href="/myposts"><li style={{marginBottom:'50px'}}>My Posts</li></a>
+            {/* <a href="/gallery"><li style={{marginBottom:'40px'}}>My Gallery</li></a> */}
 
             <LogOut />
           </ul>

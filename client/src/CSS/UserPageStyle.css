@@ -1,5 +1,5 @@
-.mainContainer{
-    /* background: linear-gradient(90deg, rgb(249, 199, 79) 0%, rgb(226, 177, 62) 35%, rgb(243, 243, 243) 100%); */
+.userProfile{
+    /* background: linear-gradient(90deg, rgb(226, 171, 199) 0%, rgb(228, 153, 188) 35%, rgb(243, 243, 243) 100%); */
     font-family: 'Pacifico', cursive;
     scroll-behavior: smooth;
 
@@ -13,7 +13,7 @@
 }
 
 .coverImg img{
-    width: 60vw;
+    width: 90vw;
     height: 60vh;
     background-size: contain;
 }
@@ -35,13 +35,14 @@
 .userProfile h1{
     font-size:70px;
     margin: 0;
+    color: var(--primeryColor);
 }
 
 .inputFile{
     position: absolute;
     right: 0;
-    top: 80%;
-    right: 5%;
+    top: 102%;
+    right: 37%;
     width: 150px;
     background: transparent;
     cursor: pointer;
@@ -51,14 +52,17 @@
 
 .uploadBtn{
     position: absolute;
-    top:80%;
-    right: 1%;
+    top:101%;
+    right: 37%;
     background: transparent;
-    color: green;
+    color: var(--primeryColor);;
     border: none;
 
 }
 
+.profileLabel{
+    margin-left: 300px;
+}
 .coverBtn i {
     margin-right: 10px;
 }

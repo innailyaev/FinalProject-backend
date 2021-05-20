@@ -53,13 +53,12 @@ const Login =()=>{
   return (
     <div className="CardContainer">
         <div className="card">
-        <h1>Please Log In</h1>
             <form onSubmit={formHandler} className="formContainer">
             <Link to='/' ><i className="fas fa-times closeBtn"></i></Link>
                 <label>Email</label>
                 <input type="text" onChange={(e)=>setEmail(e.target.value)}/>
                 <label>Password</label>
-                <input type="text" onChange={(e)=>setPassword(e.target.value)}/>
+                <input type="password" onChange={(e)=>setPassword(e.target.value)}/>
                 {errorMsg ? <p className="errorMsg">{errorMsg}</p>: null}
                 <Button click={ClickHandler} className="signInbtn" content="Login"/>
                 <div className="cardFooter">

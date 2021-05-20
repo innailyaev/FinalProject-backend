@@ -14,7 +14,7 @@ const Header = ({title}) => {
           centered
           className="tabs"
         >
-          <Tab  label='LOGO'  to='/' component={Link}><div className="logo"></div></Tab>
+          {/* <Tab  label='LOGO'  to='/' component={Link}><div className="logo"></div></Tab> */}
           <Tab  label='HOMEPAGE'  to='/' component={Link} />
           <Tab  label='ALL POSTS'  to='/allposts' component={Link} />
           <Tab  label='LOGIN'  to='/login' component={Link} />

@@ -36,7 +36,7 @@ const SignApp =()=>{
                 email:email,
                 password:password
         });
-        history.push(`/login`)
+        history.push(`/login`);
         }catch(err){
             console.log(err);
             // if (err.response.status === 400) {
@@ -57,7 +57,7 @@ const SignApp =()=>{
                 <label>Email</label>
                 <input type="text" onChange={(e)=>setEmail(e.target.value)}/>
                 <label>Password</label>
-                <input type="text" onChange={(e)=>setPassword(e.target.value)}/>
+                <input type="password" onChange={(e)=>setPassword(e.target.value)}/>
                 {errorMsg ? <p className="errorMsg">{errorMsg}</p>: null}
             <Button click={clickHandler} content={'Sign Up'} className="signInbtn"/>
             <div className="cardFooter">

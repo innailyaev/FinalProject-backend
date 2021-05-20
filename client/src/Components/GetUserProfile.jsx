@@ -67,15 +67,16 @@ const GetUserProfile =()=>{
        <div className="profileContainer">
           <div className="images">
               <div className="coverImg">
-                  <img src="https://prod-virtuoso.dotcmscloud.com/dA/188da7ea-f44f-4b9c-92f9-6a65064021c1/heroImage1/PowerfulReasons_hero.jpg" alt="travel"/>
-                    <input className="inputFile" type="file" id="file"  onChange={(e) => setFile(e.target.files[0])}/>
-                    <button className="uploadBtn" onClick={clickHandler}><i class="far fa-check-circle fa-2x"></i></button>
+                  <img src="https://training.kic.ae/wp-content/uploads/2019/02/IATA-Foundation-in-Travel-Tourism-1024x348.jpg" alt="travel"/>
               </div>
+              <label className="profileLabel">Upload Profile Image:</label>
+              <input className="inputFile" type="file" id="file"  onChange={(e) => setFile(e.target.files[0])}/>
+              <button className="uploadBtn" onClick={clickHandler}><i class="far fa-check-circle fa-2x"></i></button>
               <div className="profileDiv">
               {/* <label for="profileImg"><i class="fas fa-camera fa-2x"></i></label>
               <input type="file" id="profileImg" style={{display:"none", visibility:"none"}} onChange={inputHandler}/> */}
               {
-                (user.img) ? <img className="profileImg" src={`data:image/jpeg;base64,${user?.img}`} alt="profileImg" /> : <img className="profileImg" src={`data:image/jpeg;base64,${userImage}`} alt="profileImg" />
+                (user.img) ? <img className="profileImg" src={`data:image/jpeg;base64,${user?.img}`} alt="p" /> : (userImage) ? <img className="profileImg" src={`data:image/jpeg;base64,${userImage}`} alt="p" /> : <img className="profileImg" src={'https://www.pngitem.com/pimgs/m/404-4042686_my-profile-person-icon-png-free-transparent-png.png'} alt="p" />
               }
               <input className="inputFile" type="file" id="file"  onChange={(e) => setFile(e.target.files[0])}/>
               <button className="uploadBtn" onClick={clickHandler}><i class="far fa-check-circle fa-2x"></i></button>

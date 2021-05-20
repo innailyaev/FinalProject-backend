@@ -1,7 +1,6 @@
 import React from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-import PostCard from '../Utilities/PostCard';
 import '../CSS/CarouselStyle.css';
 
 const DemoCarousel =({img1,img2,img3,img4,img5})=> {
@@ -10,10 +9,8 @@ const DemoCarousel =({img1,img2,img3,img4,img5})=> {
     return (
         <div>
             <Carousel showThumbs={true} infiniteLoop={true}>
-                    <div className="cardContainer">
-                        <PostCard/>
-                        <PostCard/>
-                        <PostCard/>
+                    <div>
+                        <img src="https://cdn-cms.bookingexperts.nl/media/181/76/preprocessed.jpg" alt="amsterdam"/>
                     </div>
                     <div>
                         <img src="https://i.ytimg.com/vi/brWYAALZes4/maxresdefault.jpg"  alt=""/>
