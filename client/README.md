@@ -1,7 +1,7 @@
 # Explore your next journey 
 
 ![Markdown Logo](https://www.abhimanyumunjal.com/wp-content/uploads/2018/12/travel-map.jpg)
-### Publish your latest journey 
+### Publish your latest journey post 
 
 ### Upload photos from your trip
 ### A place you can be exposed to different places in the world
@@ -13,7 +13,6 @@
 * Git
 * GitHub
 * React
-* API
 * Node.js
 * MongoDB
 
